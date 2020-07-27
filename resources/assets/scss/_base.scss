@@ -1,0 +1,66 @@
+@font-face {
+    font-family: 'montserratregular';
+    src: url('../fonts/montserrat-regular-webfont.woff2') format('woff2'),
+         url('../fonts/montserrat-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'refuse_trip';
+    src: url('../fonts/refusetr-webfont.woff2') format('woff2'),
+         url('../fonts/refusetr-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+$headerFont: 'refuse_trip';
+$bodyFont: 'montserratregular';
+$red: #EC0254;
+$blue: #060b50;
+$lightBlue: #94c0f7;
+$lighGreen: #BDE842;
+
+::selection { 
+    background: $red; 
+    color: #fff;
+}
+html {
+    height: 100%;
+}
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: $bodyFont;
+    color: $blue;
+    top: 0;
+    position: relative;
+    overflow: auto;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: $headerFont;
+    text-transform: uppercase;
+    color: $red;
+    transform: rotate(-3deg);
+}
+
+body {
+    // background-image: url('../images/stage-background.jpg');
+    background-color:$lighGreen;
+}
+
+.page-template-front-page {
+}
+
+
+.stage-image {
+    position: absolute;
+    top: 50px;
+    right: 60px;
+    z-index: 100;
+    img {
+        width: 350px;
+    }
+}
