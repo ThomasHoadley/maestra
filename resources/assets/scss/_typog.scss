@@ -14,10 +14,14 @@
     line-height: 1.25;
     font-size: 1.6em;
     transform: rotate(-12deg);
-    z-index: 100;
+    z-index: 300;
     transition: 0.1s ease-in;
     a {
         text-decoration: none;
+        display: block;
+        &:hover {
+            color: $red;
+        }
     }
 }
 

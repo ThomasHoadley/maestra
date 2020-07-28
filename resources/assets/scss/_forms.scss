@@ -1,0 +1,17 @@
+.nf-form-title{
+    display: none;
+}
+.nf-form-fields-required {
+    display: none;
+}
+.submit-wrap input{
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block;
+    background: $red !important;
+    &:hover {
+        color: white !important;
+    }
+}

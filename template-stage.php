@@ -15,7 +15,7 @@ if ( have_posts() ) {
         $video_id = get_field('vimeo_video_id');
         $caption = get_field('caption_text');
     ?>
-    <h3 class="return"><a href="/">Return to the main field</a></h3>
+    <h3 class="return"><a href="/main-field">Return to the main field</a></h3>
 
     <div class="content-container">
 
@@ -26,7 +26,7 @@ if ( have_posts() ) {
        <div class="content">
             <?php if($video_id) { ?>
                 <div class="video-container">
-                    <?php echo "<iframe src='https://player.vimeo.com/video/$video_id?title=0&byline=0&portrait=0&sidedock=0' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen ></iframe>"; ?>
+                    <?php echo "<iframe src='https://player.vimeo.com/video/$video_id?title=0&byline=0&portrait=0&sidedock=0&autoplay=1'  frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen ></iframe>"; ?>
                 </div>
             <?php }; ?>
 
@@ -38,11 +38,15 @@ if ( have_posts() ) {
        </div>
     </div>
 
-    <?php if (!empty($stage_image)) { ?>
-        <div class="stage-image">
-            <img src="<?php echo $stage_image['url']; ?>" alt="<?php echo $stage_image['alt']; ?>" />
-        </div>
-    <?php } ?>
+    <?php global $post; if ( $post->post_parent ) { ?>
+        <a href="<?php echo get_permalink( $post->post_parent ); ?>" >
+    <?php }; ?>        
+    <div class="stage-image">
+        <img src="<?php echo $stage_image['url']; ?>" alt="<?php echo $stage_image['alt']; ?>" />
+    </div>
+    <?php if ( $post->post_parent ) { ?>
+        </a>
+    <?php }; ?>
 
 <?php }; 
     }; 

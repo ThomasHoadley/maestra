@@ -29,4 +29,3 @@
 </head>
 
 <body <?php body_class(); ?>>
-<?php the_content(); ?>

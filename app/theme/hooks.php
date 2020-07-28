@@ -20,17 +20,15 @@ add_action('init', function () {
         return;
     }
 
-    Theme::enqueueScript(
-        'jquery',
-        'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js',
-        true,
-        [],
-        '2.2.4',
-        false
-    );
+    // Theme::enqueueScript(
+    //     'jquery',
+    //     'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js',
+    //     true,
+    //     [],
+    //     '2.2.4',
+    //     false
+    // );
 
-    Theme::enqueueStyle('app', 'app');
-    Theme::enqueueScript('app', 'app');
 });
 
 /**
@@ -39,8 +37,11 @@ add_action('init', function () {
 add_action('wp_enqueue_scripts', function () {
 
     // Animations script
-    if (is_front_page()) {
-          Theme::enqueueScript('rwd', 'rwd', false, ['jquery'], '', true);
+    
+    if (!is_front_page()) {
+        Theme::enqueueStyle('app', 'app');
+        Theme::enqueueScript('app', 'app');
+        //   Theme::enqueueScript('rwd', 'rwd', false, ['jquery'], '', true);
     };
 });
 
@@ -51,7 +52,7 @@ add_action('after_setup_theme', function () {
     add_theme_support('html5');
     add_theme_support('post-thumbnails');
 
-    // add_image_size('teamMemberPhoto', 200, 200, true);
+    add_image_size('video_thumbnail', 800, 449, true);
 });
 
 /**
@@ -175,3 +176,31 @@ function custom_loginlogo_url($url) {
     return get_site_url();
 }
 */
+
+// Unhook scripts
+
+
+// Jquery
+function unhooks() {
+    // General unhooks
+    remove_action( 'wp_head', 'print_emoji_detection_script', 7 ); 
+    remove_action( 'admin_print_scripts', 'print_emoji_detection_script' ); 
+    remove_action( 'wp_print_styles', 'print_emoji_styles' ); 
+    remove_action( 'admin_print_styles', 'print_emoji_styles' );
+
+    // Remove jQuery
+    if (!is_admin()) {
+        
+    }
+    
+    // Remove bits from homepage
+    if(is_front_page() || is_page_template('template-main-field.php')) {
+        wp_dequeue_style('style.css');
+        wp_dequeue_style('style.min.css');
+        wp_deregister_script('wp-embed');
+        wp_dequeue_style( 'wp-block-library' );
+        wp_deregister_script('jquery');
+        wp_register_script('jquery', false);
+    }
+}
+add_action('wp_enqueue_scripts', 'unhooks');

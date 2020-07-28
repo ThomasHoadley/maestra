@@ -1,17 +1,58 @@
-<?php
-// Template Name: Home Page
-get_header();
+<?php 
+    // Template Name: Home Page
 ?>
+<!DOCTYPE html>
+<!--[if IE 9]><html <?php language_attributes(); ?> class="ie9"><![endif]-->
+<!--[if !IE]><!--><html <?php language_attributes(); ?>><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Social Meta goes here -->
+  <!-- Fav icon goes here -->
+
+  <?php wp_head(); ?>
+
+  <script>
+      window.App = <?= json_encode([
+      'urls'      => [
+        'site'  => home_url(),
+        'theme' => get_template_directory_uri(),
+        'ajax'  => admin_url('admin-ajax.php')
+      ],
+      'variables' => [
+        'debug'    => (bool) WP_DEBUG,
+        'loggedIn' => (bool) is_user_logged_in()
+      ],
+      'data'      => []
+    ]); ?>;
+  </script>
+
+<style>
+    html{height:100%;}
+    body{margin:0px;padding:0px;position:relative;overflow:auto;}
+    .page-template-front-page{padding-top:2em;background:#B7CEF7;}
+    .page-template-front-page .video-container{width:1600px;margin-left:auto;margin-right:auto;display:block;max-width:100%;-webkit-box-sizing:border-box;box-sizing:border-box;position:relative;}
+    .page-template-front-page .video-container img{max-width:100%;width:100%;height:auto;position:relative;opacity:0.5;top:0;bottom:0;z-index:1;opacity:0;}
+    .page-template-front-page .video-container video{width:100%!important;height:auto!important;position:absolute;top:0;left:0;}
+    .video-container{position:relative;padding-bottom:56.25%;height:0;z-index:100;}
+    #mapster_wrap_0 {opacity: 0;z-index: 1;}
+</style>
+
+</head>
+
+<body <?php body_class(); ?>>
+
+    <link rel="preload" as="video" href="<?= get_template_directory_uri() ?>/public/videos/loop.mp4"> 
+    <link rel="preload" as="image" href="<?= get_template_directory_uri() ?>/public/images/fieldPoster.jpg"> 
 
     <div class="video-container">
         <img src="<?= Theme::getImage('field', 'png'); ?>" usemap="#fieldmap" class="field-image">
-        <video onloadeddata="this.play();" width="100%" name="Main Stage" autoplay muted poster="<?= get_template_directory_uri() ?>/public/images/poster.jpg">
-            <source src="<?= get_template_directory_uri() ?>/public/videos/video-1.mp4" type="video/mp4" />
+        <video id="video" onloadeddata="swapPoster();" onended="swapVideo();" width="100%" name="Main Stage" autoplay muted poster="<?= get_template_directory_uri() ?>/public/images/entryPoster.jpg">
         </video>
     </div>
 
-    <?php if ( have_rows( 'stages' ) ) : ?>
-    <?php while ( have_rows( 'stages' ) ) : the_row(); ?>
+    <?php if ( have_rows( 'stages', 5 ) ) : ?>
+    <?php while ( have_rows( 'stages', 5 ) ) : the_row(); ?>
         <?php
             $main_stage = get_sub_field( 'main_stage' )['url']; 
             $speakers_corner = get_sub_field( 'speakers_corner' )['url']; 
@@ -28,18 +69,41 @@ get_header();
 <?php endif; ?>
 
     <map name="fieldmap">
-        <area target="_blank" alt="Speakers Corner" title="Speakers Corner" href="<?= $speakers_corner; ?>" coords="255,211,259,141,258,96,401,76,404,136,474,156,473,222,254,229" shape="poly">
-        <area target="_blank" alt="Bar" title="Bar" href="<?= $bar; ?>" coords="339,424,377,390,330,254,177,259,158,416" shape="poly">
-        <area target="_blank" alt="Creative Corner" title="Creative Corner" href="<?= $creative_corner; ?>" coords="201,457,429,457,440,506,474,516,480,557,172,584" shape="poly">
-        <area target="_blank" alt="Unfairground" title="Unfairground" href="<?= $unfairground; ?>" coords="534,462,676,461,682,580,816,575,816,662,630,687,519,659" shape="poly">
-        <area target="_blank" alt="Dance Stage" title="Dance Stage" href="<?= $dance_stage; ?>" coords="853,722,886,599,1028,539,1098,638,1093,752" shape="poly">
-        <area target="_blank" alt="The Future Stage" title="The Future Stage" href="<?= $future_stage; ?>" coords="1010,484,1147,618,1345,616,1349,544,1288,392,1124,400,999,402,1004,447" shape="poly">
-        <area target="_blank" alt="Comedy Tent" title="Comedy Tent" href="<?= $comedy_tent; ?>" coords="902,437,825,267,737,270,700,396,743,458" shape="poly">
-        <area target="_blank" alt="Food Tent" title="Food Tent" href="<?= $food_tent; ?>" coords="433,318,640,318,631,394,535,431,409,426,416,356" shape="poly">
-        <area target="_blank" alt="Main Stage" title="Main Stage" href="<?= $main_stage; ?>" coords="842,250,847,89,538,83,502,157,510,273" shape="poly">
-        <area target="_blank" alt="Healing Fields" title="Healing Fields" href="<?= $healing_fields; ?>" coords="1058,221,1130,112,1204,117,1246,219,1266,301,1062,314" shape="poly">
+        <area alt="Speakers Corner" title="Speakers Corner" href="<?= $speakers_corner; ?>" coords="255,211,259,141,258,96,401,76,404,136,474,156,473,222,254,229" shape="poly">
+        <area alt="Bar" title="Bar" href="<?= $bar; ?>" coords="339,424,377,390,330,254,177,259,158,416" shape="poly">
+        <area alt="Creative Corner" title="Creative Corner" href="<?= $creative_corner; ?>" coords="201,457,429,457,440,506,474,516,480,557,172,584" shape="poly">
+        <area alt="Unfairground" title="Unfairground" href="<?= $unfairground; ?>" coords="534,462,676,461,682,580,816,575,816,662,630,687,519,659" shape="poly">
+        <area alt="Dance Stage" title="Dance Stage" href="<?= $dance_stage; ?>" coords="853,722,886,599,1028,539,1098,638,1093,752" shape="poly">
+        <area alt="The Future Stage" title="The Future Stage" href="<?= $future_stage; ?>" coords="1010,484,1147,618,1345,616,1349,544,1288,392,1124,400,999,402,1004,447" shape="poly">
+        <area alt="Comedy Tent" title="Comedy Tent" href="<?= $comedy_tent; ?>" coords="902,437,825,267,737,270,700,396,743,458" shape="poly">
+        <area alt="Food Tent" title="Food Tent" href="<?= $food_tent; ?>" coords="433,318,640,318,631,394,535,431,409,426,416,356" shape="poly">
+        <area alt="Main Stage" title="Main Stage" href="<?= $main_stage; ?>" coords="842,250,847,89,538,83,502,157,510,273" shape="poly">
+        <area alt="Healing Fields" title="Healing Fields" href="<?= $healing_fields; ?>" coords="1058,221,1130,112,1204,117,1246,219,1266,301,1062,314" shape="poly">
     </map>
 
+    <script>
+        var initialVideo = window.App.urls.theme + '/public/videos/entry.mp4';
+        var loopVideo = window.App.urls.theme + '/public/videos/field.mp4';
+        var fieldPoster = window.App.urls.theme + '/public/images/fieldPoster.jpg';
+        var video = document.getElementById('video');
+        var source = document.createElement('source');
+        
+        source.setAttribute('src', initialVideo);
+        video.appendChild(source);
+        video.play();
+        
+        function swapPoster() {
+            video.setAttribute('poster', fieldPoster);
+        }
+
+        function swapVideo() {
+            video.pause();
+            source.setAttribute('src', loopVideo);
+            video.load();
+            video.setAttribute('loop', "true")
+            video.play();
+        }
+    </script>
+
 <?php
-get_sidebar();
 get_footer();

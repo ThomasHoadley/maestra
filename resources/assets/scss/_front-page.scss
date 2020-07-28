@@ -1,39 +1,39 @@
-.page-template-front-page {
-    padding-top: 2em;
-    background: $lightBlue;
-    .video-container {
-        width: 1600px;
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-        max-width: 100%;
-        // height: auto;
-        box-sizing: border-box;
-        position: relative;
+// .page-template-front-page {
+//     padding-top: 2em;
+//     background: $lightBlue;
+//     .video-container {
+//         width: 1600px;
+//         margin-left: auto;
+//         margin-right: auto;
+//         display: block;
+//         max-width: 100%;
+//         // height: auto;
+//         box-sizing: border-box;
+//         position: relative;
 
-        img {
-            max-width: 100%;
-            width: 100%;
-            height: auto;
-            position: relative;
-            opacity: 0.5;
-            top: 0;
-            bottom: 0;
-            z-index: 1;
-            opacity: 0;
-        }
-        video {
-            width: 100% !important;
-            height: auto !important;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
+//         img {
+//             max-width: 100%;
+//             width: 100%;
+//             height: auto;
+//             position: relative;
+//             opacity: 0.5;
+//             top: 0;
+//             bottom: 0;
+//             z-index: 1;
+//             opacity: 0;
+//         }
+//         video {
+//             width: 100% !important;
+//             height: auto !important;
+//             position: absolute;
+//             top: 0;
+//             left: 0;
+//         }
 
-    }
+//     }
 
-    #mapster_wrap_0 {
-        opacity: 0;
-        z-index: 1;
-    }
-}
+//     #mapster_wrap_0 {
+//         opacity: 0;
+//         z-index: 1;
+//     }
+// }

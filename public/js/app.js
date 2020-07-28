@@ -68,89 +68,61 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(1);
-module.exports = __webpack_require__(3);
+module.exports = __webpack_require__(2);
 
 
 /***/ }),
 /* 1 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__helpers__);
+// import "./helpers"
+
+// jQuery(document).ready(function ($) {
+
+//     if ($('body').hasClass('page-template-front-page')) {
+//         $('img[usemap]').rwdImageMaps();
 
 
-jQuery(document).ready(function ($) {
+//         // var img = $('.field-image');
 
-    if ($('body').hasClass('page-template-front-page')) {
-        $('img[usemap]').rwdImageMaps();
+//         // function state_change(data) {
+//         //     //alert(data.state+":"+data.selected);
+//         // }
+//         // img.mapster({
+//         //     noHrefIsMask: false,
+//         //     onStateChange: state_change,
+//         //     fillColor: '0a7a0a',
+//         //     fillOpacity: 0.7,
+//         //     mapKey: "group",
+//         //     strokeWidth: 2,
+//         //     stroke: true,
+//         //     strokeColor: 'F88017',
+//         //     // staticState: true,
+//         //     scaleMap: true,
+//         //     render_select: {
+//         //         fillColor: 'adadad',
+//         //         fillOpacity: 0.5
+//         //     },
+//         //     clickNavigate: true,
+//         //     areas: [
+//         //         {
+//         //             includeKeys: 'speakers-corner,comedy-tent,fairground,bar',
+//         //             stroke: true,
+//         //             scaleMap: true,
+//         //         },
+//         //     ]
+//         // });
 
-        // var img = $('.field-image');
-
-        // function state_change(data) {
-        //     //alert(data.state+":"+data.selected);
-        // }
-        // img.mapster({
-        //     noHrefIsMask: false,
-        //     onStateChange: state_change,
-        //     fillColor: '0a7a0a',
-        //     fillOpacity: 0.7,
-        //     mapKey: "group",
-        //     strokeWidth: 2,
-        //     stroke: true,
-        //     strokeColor: 'F88017',
-        //     // staticState: true,
-        //     scaleMap: true,
-        //     render_select: {
-        //         fillColor: 'adadad',
-        //         fillOpacity: 0.5
-        //     },
-        //     clickNavigate: true,
-        //     areas: [
-        //         {
-        //             includeKeys: 'speakers-corner,comedy-tent,fairground,bar',
-        //             stroke: true,
-        //             scaleMap: true,
-        //         },
-        //     ]
-        // });
-
-        // jQuery(window).resize(function () {
-        //     var windowWidth = $(window).width();
-        //     // scale the image on resize with new coordinates
-        //     img.mapster('resize', windowWidth, null, null);
-        // })
-    }
-});
+//         // jQuery(window).resize(function () {
+//         //     var windowWidth = $(window).width();
+//         //     // scale the image on resize with new coordinates
+//         //     img.mapster('resize', windowWidth, null, null);
+//         // })
+//     }
+// });
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports) {
-
-(function ($) {
-  // $("#cookie").click(function () {
-  //   $("#cookie-bar").fadeOut()
-
-  //   var nDays = 999
-  //   var cookieName = "disclaimer"
-  //   var cookieValue = "true"
-
-  //   var today = new Date()
-  //   var expire = new Date()
-  //   expire.setTime(today.getTime() + 3600000 * 24 * nDays)
-  //   document.cookie =
-  //     cookieName +
-  //     "=" +
-  //     escape(cookieValue) +
-  //     ";expires=" +
-  //     expire.toGMTString() +
-  //     ";path=/"
-  // })
-})(jQuery);
-
-/***/ }),
-/* 3 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

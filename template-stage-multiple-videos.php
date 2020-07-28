@@ -16,7 +16,7 @@ if ( have_posts() ) {
         $sub_title = get_field( 'sub_title' );
     ?>
 
-    <h3 class="return"><a href="/">Return to the main field</a></h3>
+    <h3 class="return"><a href="/main-field">Return to the main field</a></h3>
 
     <div class="content-container">
 
@@ -50,7 +50,7 @@ if ( have_posts() ) {
                             <?php } ?>    
 
                                 <?php if ( $video_thumbnail ) { ?>
-                                    <div class="video-thumbnail" style="background-image: url(<?php echo $video_thumbnail['url']; ?>);"></div>
+                                    <div class="video-thumbnail" style="background-image: url(<?php echo $video_thumbnail['sizes']['video_thumbnail']; ?>);"></div>
                                 <?php } ?>
 
                             <?php if ( $video_link ) { ?>
@@ -71,11 +71,15 @@ if ( have_posts() ) {
 
     </div>
 
-    <?php if (!empty($stage_image)) { ?>
-        <div class="stage-image">
-            <img src="<?php echo $stage_image['url']; ?>" alt="<?php echo $stage_image['alt']; ?>" />
-        </div>
-    <?php } ?>
+    <?php global $post; if ( $post->post_parent ) { ?>
+        <a href="<?php echo get_permalink( $post->post_parent ); ?>" >
+    <?php }; ?>        
+    <div class="stage-image">
+        <img src="<?php echo $stage_image['url']; ?>" alt="<?php echo $stage_image['alt']; ?>" />
+    </div>
+    <?php if ( $post->post_parent ) { ?>
+        </a>
+    <?php }; ?>
 
 <?php }; 
     }; 

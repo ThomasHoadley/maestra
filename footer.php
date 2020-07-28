@@ -1,4 +1,4 @@
-<?php if(!is_front_page()) : ?>
+<?php if(!is_front_page() && !is_page_template('template-main-field.php')) : ?>
   <div class="background-images">
     <img src="<?= Theme::getImage('/bg-bottom', 'png'); ?>" class="bottom">
     <img src="<?= Theme::getImage('/bg-center-1', 'png'); ?>" class="center-1">

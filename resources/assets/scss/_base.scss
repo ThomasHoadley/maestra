@@ -19,7 +19,7 @@ $headerFont: 'refuse_trip';
 $bodyFont: 'montserratregular';
 $red: #EC0254;
 $blue: #060b50;
-$lightBlue: #94c0f7;
+$lightBlue: #B7CEF7;
 $lighGreen: #BDE842;
 
 ::selection { 
@@ -37,6 +37,7 @@ body {
     top: 0;
     position: relative;
     overflow: auto;
+    overflow-x: hidden;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -59,7 +60,7 @@ body {
     position: absolute;
     top: 50px;
     right: 60px;
-    z-index: 100;
+    z-index: 400;
     img {
         width: 350px;
     }

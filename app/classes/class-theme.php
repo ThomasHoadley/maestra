@@ -5,7 +5,7 @@
  * @TODO this needs re-factoring to something better
  *
  * @package Theme
- * @since   1.0.0
+ * @since   1.0.1
  */
 class Theme {
     public static function enqueueStyle(
@@ -13,7 +13,7 @@ class Theme {
         $source,
         $external = false,
         $dependencies = array(),
-        $version = '1.0.0'
+        $version = '1.0.2'
     ) {
         if ($external == false) {
             $source = self::getStylesheet($source);
@@ -31,7 +31,7 @@ class Theme {
         $source,
         $external = false,
         $dependencies = array(),
-        $version = '1.0.0',
+        $version = '1.0.2',
         $inFooter = false
     ) {
         if ($external == false) {
