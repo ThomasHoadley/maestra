@@ -11,23 +11,13 @@ get_header();
 if ( have_posts() ) {
 	while ( have_posts() ) {
         the_post(); 
-        
-        $stage_image = get_field('stage_image');
-        $sub_title = get_field( 'sub_title' );
     ?>
 
-    <h3 class="return"><a href="/main-field">Return to the main field</a></h3>
+    <?php get_template_part('resources/parts/return-link'); ?>
 
     <div class="content-container">
 
-        <div class="header">
-            <h1 class="title"><?php the_title(); ?></h1>
-            <?php if($sub_title) { ?>
-                <div class="sub-title">
-                    <p><?= $sub_title; ?></p>
-                </div>
-            <?php } ?>
-        </div>
+        <?php get_template_part('resources/parts/stage-header'); ?>
 
         <div class="content">
 
@@ -59,7 +49,7 @@ if ( have_posts() ) {
                             
                             <?php if($video_description) { ?>
                                 <div class="video-description">
-                                    <p><?= $video_description; ?></p>
+                                    <?= $video_description; ?></p>
                                 </div>
                             <?php } ?>
                         </div>
@@ -70,16 +60,7 @@ if ( have_posts() ) {
         </div> 
 
     </div>
-
-    <?php global $post; if ( $post->post_parent ) { ?>
-        <a href="<?php echo get_permalink( $post->post_parent ); ?>" >
-    <?php }; ?>        
-    <div class="stage-image">
-        <img src="<?php echo $stage_image['url']; ?>" alt="<?php echo $stage_image['alt']; ?>" />
-    </div>
-    <?php if ( $post->post_parent ) { ?>
-        </a>
-    <?php }; ?>
+    <?php get_template_part('resources/parts/stage-image'); ?>
 
 <?php }; 
     }; 

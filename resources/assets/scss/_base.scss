@@ -56,7 +56,7 @@ body {
 }
 
 
-.stage-image {
+.stage-image-container {
     position: absolute;
     top: 50px;
     right: 60px;
@@ -64,4 +64,22 @@ body {
     img {
         width: 350px;
     }
+    .stage-image {
+        position: relative;
+        .back-button {
+            transform: rotate(22deg) ;
+            top: -20px;
+            font-size: 1.2rem;
+            text-align: center;
+            width: 260px;
+            right: 0;
+            position: absolute;
+            color: $blue;
+        }
+    }
+}
+
+img {
+    max-width: 100% !important;
+    height: auto !important;
 }

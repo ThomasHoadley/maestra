@@ -42,7 +42,7 @@
 
 <body <?php body_class(); ?>>
 
-    <link rel="preload" as="video" href="<?= get_template_directory_uri() ?>/public/videos/loop.mp4"> 
+    <link rel="preload" as="video" href="<?= get_template_directory_uri() ?>/public/videos/field.mp4"> 
     <link rel="preload" as="image" href="<?= get_template_directory_uri() ?>/public/images/fieldPoster.jpg"> 
 
     <div class="video-container">

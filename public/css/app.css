@@ -49,15 +49,36 @@ body {
   background-color: #BDE842;
 }
 
-.stage-image {
+.stage-image-container {
   position: absolute;
   top: 50px;
   right: 60px;
   z-index: 400;
 }
 
-.stage-image img {
+.stage-image-container img {
   width: 350px;
+}
+
+.stage-image-container .stage-image {
+  position: relative;
+}
+
+.stage-image-container .stage-image .back-button {
+  -webkit-transform: rotate(22deg);
+          transform: rotate(22deg);
+  top: -20px;
+  font-size: 1.2rem;
+  text-align: center;
+  width: 260px;
+  right: 0;
+  position: absolute;
+  color: #060b50;
+}
+
+img {
+  max-width: 100% !important;
+  height: auto !important;
 }
 
 .nf-form-title {
@@ -87,7 +108,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   padding: 0px 30px;
-  padding-top: 120px;
+  padding-top: 90px;
   padding-bottom: 120px;
   position: relative;
   z-index: 200;
@@ -110,12 +131,12 @@ body {
             flex-direction: row;
   }
   .content-container .content.has-sidebar .video {
-    -ms-flex-preferred-size: 60%;
-        flex-basis: 60%;
+    -ms-flex-preferred-size: calc(100% - 350px);
+        flex-basis: calc(100% - 350px);
   }
   .content-container .content.has-sidebar .side-bar {
-    -ms-flex-preferred-size: 40%;
-        flex-basis: 40%;
+    -ms-flex-preferred-size: 350px;
+        flex-basis: 350px;
     padding: 0px 30px;
   }
   .content-container .content.has-sidebar .side-bar h1, .content-container .content.has-sidebar .side-bar h2, .content-container .content.has-sidebar .side-bar h3, .content-container .content.has-sidebar .side-bar h4, .content-container .content.has-sidebar .side-bar h5, .content-container .content.has-sidebar .side-bar h6 {
@@ -137,6 +158,31 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.side-bar {
+  line-height: 1.5em;
+}
+
+.side-bar *:first-child {
+  margin-top: 0px;
+}
+
+@media (min-width: 768px) {
+  .two-column {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .two-column .column {
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+    padding: 0px 30px;
+  }
 }
 
 .background-images {
@@ -184,6 +230,114 @@ body {
   top: 70%;
 }
 
+html {
+  /* Change default typefaces here */
+  font-size: 137.5%;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Copy & Lists */
+p {
+  line-height: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+}
+
+ul,
+ol {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+ul li,
+ol li {
+  line-height: 1.5rem;
+}
+
+ul ul,
+ol ul,
+ul ol,
+ol ol {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+blockquote {
+  line-height: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /* Change heading typefaces here */
+  font-family: "refuse_trip";
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+  line-height: 1.5rem;
+}
+
+h1 {
+  font-size: 4.242rem;
+  line-height: 4.5rem;
+  margin-top: 3rem;
+}
+
+h2 {
+  font-size: 2.828rem;
+  line-height: 3rem;
+  margin-top: 3rem;
+}
+
+h3 {
+  font-size: 1.414rem;
+}
+
+h4 {
+  font-size: 0.707rem;
+}
+
+h5 {
+  font-size: 0.4713333333333333rem;
+}
+
+h6 {
+  font-size: 0.3535rem;
+}
+
+/* Tables */
+table {
+  margin-top: 1.5rem;
+  border-spacing: 0px;
+  border-collapse: collapse;
+}
+
+table td,
+table th {
+  padding: 0;
+  line-height: 33px;
+}
+
+/* Code blocks */
+code {
+  vertical-align: bottom;
+}
+
+/* Leading paragraph text */
+.lead {
+  font-size: 1.414rem;
+}
+
+/* Hug the block above you */
+.hug {
+  margin-top: 0;
+}
+
 .header .title {
   -ms-flex-item-align: center;
       align-self: center;
@@ -194,10 +348,9 @@ body {
   position: absolute;
   top: 40px;
   left: 30px;
-  width: 200px;
+  width: 260px;
   text-align: center;
   line-height: 1.25;
-  font-size: 1.6em;
   -webkit-transform: rotate(-12deg);
           transform: rotate(-12deg);
   z-index: 300;
@@ -216,21 +369,23 @@ body {
 
 .title {
   text-align: center;
-  font-size: 4em;
   margin-top: 0px;
   margin-bottom: 0px;
 }
 
 .caption {
-  text-align: center;
-  margin-top: 2em;
-  font-size: 1.5em;
+  text-align: left;
+  margin-top: 1em;
 }
 
 .sub-title {
   text-align: center;
   margin-top: 2em;
   font-size: 1.5em;
+}
+
+a {
+  text-decoration: none;
 }
 
 .videos-container {
