@@ -1,0 +1,136 @@
+.stage-header {
+    position: relative;
+    padding-top: 2em;
+    z-index: 200;
+    @media (min-width: 768px) {
+        display: flex;
+        justify-content: center;
+        .left, .right {
+            width: 400px;
+        }
+        .middle {
+            flex-basis: calc(100% - 400px);
+        }
+        .col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .left {
+            justify-content: flex-start;
+        }
+        .middle {
+            justify-content: center;
+        }
+        .right {
+            align-items: flex-start;
+        }
+    }
+
+    .left {
+        text-align: center;
+        a {
+            color: $blue;
+        }
+        .return-container {
+            position: relative;
+            .flag {
+                position: absolute;
+                max-height: 100px;
+                top: 0;
+                z-index: 200;
+                &.flag1 {
+                    top: 70px;
+                    left: -10px;
+                    transform: rotate(-9deg);
+                }
+                &.flag2 {
+                    top: 20px;
+                    right: -60px;
+                    transform: rotate(6deg);
+                }
+            }
+        }
+        .return {
+            margin-top: 1em;
+            top: 40px;
+            left: 30px;
+            width: 260px;
+            text-align: center;
+            transform: rotate(-12deg);
+            z-index: 300;
+            position: relative;
+            transition: 0.1s ease-in;
+            a {
+                text-decoration: none;
+                display: block;
+                &:hover {
+                    color: $red;
+                }
+            }
+        }        
+    }
+    
+    .middle {
+        .title {
+            text-align: center;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            font-size: 6em;
+            font-size: 6vw;
+            line-height: 1.2;
+        }
+
+        .before-title {
+            text-align: center;
+            font-size: 1em;
+            margin-top: 0em;
+            margin-bottom: 0.5em;
+            line-height: 1;
+            p {
+                margin-top: 0px;
+            }
+        }
+        .sub-title {
+            text-align: center;
+            font-size: 1.5em;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            width: 800px;
+            line-height: 1;
+            p {
+                margin-top: 0px;
+            }
+        }    
+    }
+
+    .right {
+        a {
+            h4 {
+                color: $blue;
+            }
+        }
+        a:hover {
+            h4 {
+                color: $red !important;
+            }
+        }
+        .stage-image-container {
+            z-index: 400;
+            .stage-image {
+                position: relative;
+                .back-button {
+                    transform: rotate(12deg);
+                    top: 20px;
+                    font-size: 1.2rem;
+                    text-align: center;
+                    width: 260px;
+                    right: -50px;
+                    position: relative;
+                    margin-top: 0px;
+                    color: $blue;
+                }
+            }
+        }        
+    }
+}

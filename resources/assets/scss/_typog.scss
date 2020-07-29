@@ -89,50 +89,15 @@ code {
   margin-top: 0;
 }
 
-.header {
-    .title {
-        align-self: center;
-    }   
-}
-
-.return {
-    margin-top: 1em;
-    position: absolute;
-    top: 40px;
-    left: 30px;
-    width: 260px;
-    text-align: center;
-    line-height: 1.25;
-    transform: rotate(-12deg);
-    z-index: 300;
-    transition: 0.1s ease-in;
-    a {
-        text-decoration: none;
-        display: block;
-        &:hover {
-            color: $red;
-        }
-    }
-}
-
-.title {
-    text-align: center;
-    // margin-top: 1.5em;
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-
 .caption {
-    text-align: left;
-    margin-top: 1em;
+  text-align: left;
+  margin-top: 1em;
 }
 
-.sub-title {
-    text-align: center;
-    margin-top: 2em;
-    font-size: 1.5em;
-}
 
 a {
   text-decoration: none;
+  &:hover {
+    color: $red;
+  }
 }

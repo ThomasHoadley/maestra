@@ -16,11 +16,9 @@ if ( have_posts() ) {
         $sidebar_content = get_field('sidebar_content');
     ?>
 
-    <?php get_template_part('resources/parts/return-link'); ?>
+    <?php get_template_part('resources/parts/stage-header'); ?>
 
     <div class="content-container">
-
-        <?php get_template_part('resources/parts/stage-header'); ?>
         
        <div class="content has-sidebar">
             <div class="video">
@@ -42,7 +40,7 @@ if ( have_posts() ) {
        </div>
     </div>
 
-    <?php get_template_part('resources/parts/stage-image'); ?>
+    <?php get_template_part('resources/parts/decorations'); ?>
 
 <?php }; 
     }; 

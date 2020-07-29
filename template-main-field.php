@@ -30,7 +30,7 @@
 <style>
     html{height:100%;}
     body{margin:0px;padding:0px;position:relative;overflow:auto;}
-    .page-template-template-main-field{padding-top:2em;background:#B7CEF7;}
+    .page-template-template-main-field{padding-top:2em;background:#d1eefe;}
     .page-template-template-main-field .video-container{width:1600px;margin-left:auto;margin-right:auto;display:block;max-width:100%;-webkit-box-sizing:border-box;box-sizing:border-box;position:relative;}
     .page-template-template-main-field .video-container img{max-width:100%;width:100%;height:auto;position:relative;opacity:0.5;top:0;bottom:0;z-index:1;opacity:0;}
     .page-template-template-main-field .video-container video{width:100%!important;height:auto!important;position:absolute;top:0;left:0;}

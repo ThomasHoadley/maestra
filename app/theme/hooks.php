@@ -204,3 +204,27 @@ function unhooks() {
     }
 }
 add_action('wp_enqueue_scripts', 'unhooks');
+
+
+function klf_acf_input_admin_footer() { ?>
+
+<script type="text/javascript">
+(function($) {
+
+acf.add_filter('color_picker_args', function( args, $field ){
+
+// add the hexadecimal codes here for the colors you want to appear as swatches
+args.palettes = ['#272b2c', '#a6a7ac', '#eceee1', '#f5b995', '#d2d2ff','#82c8b8','#b3ff45','#ffff74','#ff8152','#ff8cf5','#46bde6','#6deb82','#ffff00','#ff5420','#ae00c6','#005473','#376319','#ff2828','#4142ae' ];
+
+
+// return colors
+return args;
+
+});
+
+})(jQuery);
+</script>
+
+<?php }
+
+add_action('acf/input/admin_footer', 'klf_acf_input_admin_footer');

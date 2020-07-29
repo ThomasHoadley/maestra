@@ -3,30 +3,6 @@
     "title": "Stage Template",
     "fields": [
         {
-            "key": "field_5f1ea5532150f",
-            "label": "Stage Image",
-            "name": "stage_image",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "preview_size": "thumbnail",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
             "key": "field_5f1eac33d0105",
             "label": "Vimeo Video ID",
             "name": "vimeo_video_id",
@@ -86,5 +62,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1595959037
+    "modified": 1596034046
 }

@@ -14,12 +14,10 @@ if ( have_posts() ) {
         $video_id = get_field('vimeo_video_id');
         $caption = get_field('caption_text');
     ?>
-    
-    <?php get_template_part('resources/parts/return-link'); ?>
+
+    <?php get_template_part('resources/parts/stage-header'); ?>
 
     <div class="content-container">
-
-        <?php get_template_part('resources/parts/stage-header'); ?>
         
        <div class="content">
             <?php if($video_id) { ?>
@@ -35,9 +33,7 @@ if ( have_posts() ) {
             <?php } ?>
        </div>
     </div>
-
-    <?php get_template_part('resources/parts/stage-image'); ?>
-
+    <?php get_template_part('resources/parts/decorations'); ?>
 <?php }; 
     }; 
 ?>
