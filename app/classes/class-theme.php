@@ -13,7 +13,7 @@ class Theme {
         $source,
         $external = false,
         $dependencies = array(),
-        $version = '1.1.0'
+        $version = '1.1.5'
     ) {
         if ($external == false) {
             $source = self::getStylesheet($source);
@@ -31,7 +31,7 @@ class Theme {
         $source,
         $external = false,
         $dependencies = array(),
-        $version = '1.1.0',
+        $version = '1.1.5',
         $inFooter = false
     ) {
         if ($external == false) {

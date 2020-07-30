@@ -15,7 +15,9 @@
     <div class="stage-image-container">
         <div class="stage-image">
             <?php if ( $parent ) { ?>
-            <h4 class="back-button">return to the <?php echo get_the_title( $parent, $post_id ); ?></h4>
+            <div class="back-button-container">
+                <h4 class="back-button">return to the <?php echo get_the_title( $parent, $post_id ); ?></h4>
+            </div>
             <?php } ?>
                 
             <img src="<?php echo $stage_image['url']; ?>" alt="<?php echo $stage_image['alt']; ?>" />          

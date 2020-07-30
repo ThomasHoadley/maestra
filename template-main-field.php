@@ -29,12 +29,14 @@
 
 <style>
     html{height:100%;}
-    body{margin:0px;padding:0px;position:relative;overflow:auto;}
-    .page-template-template-main-field{padding-top:2em;background:#d1eefe;}
-    .page-template-template-main-field .video-container{width:1600px;margin-left:auto;margin-right:auto;display:block;max-width:100%;-webkit-box-sizing:border-box;box-sizing:border-box;position:relative;}
-    .page-template-template-main-field .video-container img{max-width:100%;width:100%;height:auto;position:relative;opacity:0.5;top:0;bottom:0;z-index:1;opacity:0;}
-    .page-template-template-main-field .video-container video{width:100%!important;height:auto!important;position:absolute;top:0;left:0;}
-    .video-container{position:relative;padding-bottom:56.25%;height:0;z-index:100;}
+    body{margin:0px;padding:0px;position:relative;overflow:auto; height: 100%;}
+    body{background:#2ee3f1;}
+    body .video-container{width:1600px;margin-left:auto;margin-right:auto;display:block;max-width:100%;-webkit-box-sizing:border-box;box-sizing:border-box;position:fixed;top: 50%;left:50%;transform: translate(-50%, -50%);-webkit-transform: translate(-50%, -50%);}
+    body .video-container img{max-width:100%;width:100%;height:auto;position:relative;opacity:0.5;top:0;bottom:0;z-index:1;opacity:0;}
+    body .video-container video{width:100%!important;height:auto!important;position:absolute;top:0;left:0;}
+    .video-container{position:relative;padding-bottom:56.25%;height:100%;z-index:100;}
+    .video-container {top:50%;transform:translateY(-50%);}
+    .logo { position: absolute; bottom: 30px; right: 0px; z-index: 100; width: 200px}
     #mapster_wrap_0 {opacity: 0;z-index: 1;}
 </style>
 
@@ -50,6 +52,8 @@
         <video id="video" width="100%" name="Main Field" autoplay loop muted poster="<?= get_template_directory_uri() ?>/public/images/fieldPoster.jpg">
         </video>
     </div>
+    
+    <div class="logo"><img src="<?= Theme::getImage('logo','png'); ?>" alt="Warner Music Summer Time Festival"></div>
 
     <?php if ( have_rows( 'stages', '5' ) ) : ?>
     <?php while ( have_rows( 'stages','5' ) ) : the_row(); ?>

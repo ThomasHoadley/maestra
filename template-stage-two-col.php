@@ -17,6 +17,7 @@ if ( have_posts() ) {
     ?>
     
     <?php get_template_part('resources/parts/stage-header'); ?>
+    <?php get_template_part('resources/parts/stage-banner'); ?>
 
     <div class="content-container">
        <div class="content two-column">
@@ -24,16 +25,20 @@ if ( have_posts() ) {
                 <?php if($left_column_image) : ?>
                     <div class="image" style="background-image:url(<?= $left_column_image['sizes']['large']; ?>);"></div>
                 <?php endif; ?>
-                <div class="content">
-                    <?= $left_column; ?>
+                <div class="panel">
+                    <div class="content">
+                        <?= $left_column; ?>
+                    </div>
                 </div>
             </div>
             <div class="column">
                 <?php if($right_column_image) : ?>
                     <div class="image" style="background-image:url(<?= $right_column_image['sizes']['large']; ?>);"></div>
                 <?php endif; ?>
-                <div class="content">
-                    <?= $right_column; ?>
+                <div class="panel">
+                    <div class="content">
+                        <?= $right_column; ?>
+                    </div>
                 </div>
             </div>
        </div>

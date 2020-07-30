@@ -14,6 +14,7 @@ if ( have_posts() ) {
     ?>
 
     <?php get_template_part('resources/parts/stage-header'); ?>
+    <?php get_template_part('resources/parts/stage-banner'); ?>
 
     <div class="content-container">
 

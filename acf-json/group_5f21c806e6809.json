@@ -4,10 +4,10 @@
     "fields": [
         {
             "key": "field_5f21c816872f5",
-            "label": "Path",
-            "name": "path",
+            "label": "Remove Path",
+            "name": "remove_path",
             "type": "true_false",
-            "instructions": "A path that sits below the content.",
+            "instructions": "Tick this too remove the path",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -20,6 +20,27 @@
             "ui": 1,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_5f22a89a5c9ef",
+            "label": "Move path",
+            "name": "move_path",
+            "type": "number",
+            "instructions": "Use a minus number to move it up, and a positive to move it down.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
         }
     ],
     "location": [
@@ -52,7 +73,7 @@
             }
         ]
     ],
-    "menu_order": 1,
+    "menu_order": 4,
     "position": "normal",
     "style": "acftc-group-0",
     "label_placement": "top",
@@ -62,5 +83,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1596049489
+    "modified": 1596116426
 }

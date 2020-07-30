@@ -1,0 +1,128 @@
+.stage-banner-container {
+	padding-top: 0em;
+	width: 1300px;
+	max-width: 100%;
+	margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    transform: rotate(-3deg);
+    margin-top: -1em;
+
+
+    .row {
+        display: table;
+        width: 100%;
+        height: 100%;
+        margin: auto;
+    }
+
+    .block {
+        display: table-cell;
+        width: 100%;
+        vertical-align: middle;
+        position: relative;
+    }
+    .header {
+        display: block;
+    }
+
+    a {
+        color: $blue;
+        text-decoration: underline;
+        display: block;
+        .dark-banner & {
+            color: white;
+        }
+    }
+
+    p {
+        position: relative;
+        display: inline-block;
+        font-weight: 500;
+        letter-spacing: 0.15em;
+        text-align: center;
+        font-size: 1em;
+        text-transform: uppercase;
+        color: white;
+        .dark-banner & {
+            color: $blue;
+        }
+
+        &:after,
+        &:before {
+            content: " ";
+            display: block;
+            position: absolute;
+            bottom: -.5em;
+            width: 1em;
+            height: 100%;
+            background-color: lighten(#fff,10);
+            pointer-events:none;
+            .dark-banner & {
+                background-color: lighten($blue,10);
+            }
+        }
+
+        &:after {
+            right: -.57em;
+            z-index: -1;
+        }
+
+        &:before {
+            bottom: auto;
+            top: -.5em;
+            left: -.57em;
+            z-index: -1;
+        }
+
+        span {
+            display: inline-block;
+            position: relative;
+            padding: .45em .75em;
+            text-decoration: none;
+            background-color: lighten(#fff,20);
+            color: $red;
+            .dark-banner & {
+                background-color: lighten($blue,10);
+                color: white;
+            }
+
+
+            &:after,
+            &:before {
+                content: " ";
+                display: block;
+                position: absolute;
+                width: 0;
+                height: 0;
+                bottom: -.5em;
+                left: -.05em;
+                pointer-events: none;
+                -webkit-mask: none;
+            }
+
+            &:before {
+                bottom: auto;
+                top: -.5em;
+                border-bottom: .5em solid darken(#fff,10);
+                border-left: .5em solid transparent;
+
+                .dark-banner & {
+                    border-bottom: .5em solid darken($blue,10);
+                }
+
+            }
+
+            &:after {
+                left:  auto;
+                right: -.05em;
+                border-top: .5em solid darken(#fff,10);
+                border-right: .5em solid transparent;
+                .dark-banner & {
+                    border-top: .5em solid darken($blue,10);
+                }                
+            }
+        }
+
+    }    
+}

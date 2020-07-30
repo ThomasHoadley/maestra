@@ -127,6 +127,30 @@
                 "id": ""
             },
             "default_value": ""
+        },
+        {
+            "key": "field_5f22a535c9a80",
+            "label": "Change Default Flag Image",
+            "name": "change_default_flag_image",
+            "type": "image",
+            "instructions": "Upload a different flag image here if the default colour clashes with the background.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
         }
     ],
     "location": [
@@ -169,5 +193,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1596038992
+    "modified": 1596106070
 }

@@ -75,3 +75,4 @@ function page_builder_block_exists($name) {
 function get_theme_option($name, $scope) {
     return get_field('option_' . $scope . '_' . $name, 'option');
 }
+

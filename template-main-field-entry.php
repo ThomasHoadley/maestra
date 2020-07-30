@@ -30,11 +30,12 @@
 <style>
     html{height:100%;}
     body{margin:0px;padding:0px;position:relative;overflow:auto;}
-    .page-template-template-main-field-entry{padding-top:2em;background:#d1eefe;}
+    .page-template-template-main-field-entry{padding-top:2em;background:#2ee3f1;}
     .page-template-template-main-field-entry .video-container{width:1600px;margin-left:auto;margin-right:auto;display:block;max-width:100%;-webkit-box-sizing:border-box;box-sizing:border-box;position:relative;}
     .page-template-template-main-field-entry .video-container img{max-width:100%;width:100%;height:auto;position:relative;opacity:0.5;top:0;bottom:0;z-index:1;opacity:0;}
     .page-template-template-main-field-entry .video-container video{width:100%!important;height:auto!important;position:absolute;top:0;left:0;}
     .video-container{position:relative;padding-bottom:56.25%;height:0;z-index:100;}
+    .page-template-template-main-field-entry .video-container .info-text { z-index: 100;position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); color: white; font-size: 40px; }
     #mapster_wrap_0 {opacity: 0;z-index: 1;}
 </style>
 
@@ -87,10 +88,14 @@
         var fieldPoster = window.App.urls.theme + '/public/images/fieldPoster.jpg';
         var video = document.getElementById('video');
         var source = document.createElement('source');
+        var clickToStart = document.getElementById('clickToStart');
         
         source.setAttribute('src', initialVideo);
         video.appendChild(source);
-        video.play();
+
+        clickToStart.addEventListener('click', function(){
+            video.play();
+        })
         
         function swapPoster() {
             video.setAttribute('poster', fieldPoster);
@@ -101,7 +106,7 @@
             source.setAttribute('src', loopVideo);
             video.load();
             video.setAttribute('loop', "true")
-            video.play();
+            // video.play();
         }
     </script>
 

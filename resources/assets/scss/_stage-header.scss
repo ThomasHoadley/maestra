@@ -1,3 +1,18 @@
+@mixin mainfieldshake {
+    animation: mainfieldshake 1s cubic-bezier(.36,.07,.19,.97) forwards infinite;
+    animation-fill-mode: forwards;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;    
+}
+
+@mixin previousfieldshake {
+    animation: previousfieldshake 1s cubic-bezier(.36,.07,.19,.97) forwards infinite;
+    animation-fill-mode: forwards;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;    
+}
+
+
 .stage-header {
     position: relative;
     padding-top: 2em;
@@ -5,11 +20,14 @@
     @media (min-width: 768px) {
         display: flex;
         justify-content: center;
-        .left, .right {
+        .left {
+            width: 300px;
+        }
+        .right {
             width: 400px;
         }
         .middle {
-            flex-basis: calc(100% - 400px);
+            flex-basis: calc(100% - 700px);
         }
         .col {
             display: flex;
@@ -31,28 +49,22 @@
         text-align: center;
         a {
             color: $blue;
+            &:hover {
+                @include mainfieldshake;
+            }
         }
         .return-container {
             position: relative;
             .flag {
                 position: absolute;
-                max-height: 100px;
-                top: 0;
                 z-index: 200;
-                &.flag1 {
-                    top: 70px;
-                    left: -10px;
-                    transform: rotate(-9deg);
-                }
-                &.flag2 {
-                    top: 20px;
-                    right: -60px;
-                    transform: rotate(6deg);
-                }
+                top: 90px;
+                left: 0px;
+                max-height: 100px;
+                transform: rotate(-12deg);
             }
         }
         .return {
-            margin-top: 1em;
             top: 40px;
             left: 30px;
             width: 260px;
@@ -64,9 +76,6 @@
             a {
                 text-decoration: none;
                 display: block;
-                &:hover {
-                    color: $red;
-                }
             }
         }        
     }
@@ -105,20 +114,28 @@
     }
 
     .right {
+        &:hover {
+            .back-button-container {
+                @include previousfieldshake;
+            }
+        }
         a {
             h4 {
                 color: $blue;
             }
         }
-        a:hover {
-            h4 {
-                color: $red !important;
-            }
-        }
         .stage-image-container {
+            width: 100%;
+            max-width: 100%;
             z-index: 400;
             .stage-image {
                 position: relative;
+                width: 100%;
+                max-width: 100%;
+                img {
+                    width: 100%;
+                    max-width: 100%;
+                }
                 .back-button {
                     transform: rotate(12deg);
                     top: 20px;
@@ -133,4 +150,43 @@
             }
         }        
     }
+}
+
+@keyframes mainfieldshake {
+    10%, 90% {
+        transform: rotate(-3deg);
+    }    
+    20%, 80% {
+        transform: rotate(3deg);
+    }    
+    30%, 50%, 70% {
+        transform: rotate(-3deg);
+    }    
+    40%, 60% {
+        -webkit-transform: rotate(3deg);
+        transform: rotate(3deg);
+    }
+    100% {
+        -webkit-transform: rotate(3deg);
+        transform: rotate(3deg);
+    }        
+}
+@keyframes previousfieldshake {
+    10%, 90% {
+        transform: rotate(-3deg);
+    }    
+    20%, 80% {
+        transform: rotate(3deg);
+    }    
+    30%, 50%, 70% {
+        transform: rotate(-3deg);
+    }    
+    40%, 60% {
+        -webkit-transform: rotate(3deg);
+        transform: rotate(3deg);
+    }
+    100% {
+        -webkit-transform: rotate(3deg);
+        transform: rotate(3deg);
+    }        
 }
