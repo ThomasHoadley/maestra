@@ -38,7 +38,7 @@ add_action('wp_enqueue_scripts', function () {
 
     // Animations script
     
-    if (!is_front_page()) {
+    if (!is_front_page() && !is_page_template('template-main-field-entry.php') && !is_page_template('template-main-field.php')) {
         Theme::enqueueStyle('app', 'app');
         Theme::enqueueScript('app', 'app');
         //   Theme::enqueueScript('rwd', 'rwd', false, ['jquery'], '', true);
@@ -228,3 +228,18 @@ return args;
 <?php }
 
 add_action('acf/input/admin_footer', 'klf_acf_input_admin_footer');
+
+
+// ACF PAGe
+
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page(array(
+		'page_title' 	=> 'Field Assets',
+		'menu_title'	=> 'Field Assets',
+		'menu_slug' 	=> 'field-assets',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+	
+}

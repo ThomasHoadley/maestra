@@ -1,0 +1,100 @@
+{
+    "key": "group_5f230e00476aa",
+    "title": "Field assets",
+    "fields": [
+        {
+            "key": "field_5f230e0bd66c5",
+            "label": "Entry Video",
+            "name": "entry_video",
+            "type": "file",
+            "instructions": "The video with the gate animation",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_5f230e1fd66c6",
+            "label": "Looping Video",
+            "name": "looping_video",
+            "type": "file",
+            "instructions": "The video that loops",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_5f230e2dd66c7",
+            "label": "Entry Poster Image",
+            "name": "entry_poster_image",
+            "type": "file",
+            "instructions": "The first frame of the entry video. (Picture of the gate). Ideally this should be .jpeg.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_5f230e53d66c8",
+            "label": "Looping Poster Image",
+            "name": "looping_poster_image",
+            "type": "file",
+            "instructions": "The first frame of the video that loops. (Picture of the field). Ideally this should be .jpeg.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "field-assets"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1596133313
+}

@@ -28,29 +28,56 @@
   </script>
 
 <style>
-    html{height:100%;}
-    body{margin:0px;padding:0px;position:relative;overflow:auto;}
-    .page-template-template-main-field-entry{padding-top:2em;background:#2ee3f1;}
-    .page-template-template-main-field-entry .video-container{width:1600px;margin-left:auto;margin-right:auto;display:block;max-width:100%;-webkit-box-sizing:border-box;box-sizing:border-box;position:relative;}
-    .page-template-template-main-field-entry .video-container img{max-width:100%;width:100%;height:auto;position:relative;opacity:0.5;top:0;bottom:0;z-index:1;opacity:0;}
-    .page-template-template-main-field-entry .video-container video{width:100%!important;height:auto!important;position:absolute;top:0;left:0;}
-    .video-container{position:relative;padding-bottom:56.25%;height:0;z-index:100;}
-    .page-template-template-main-field-entry .video-container .info-text { z-index: 100;position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); color: white; font-size: 40px; }
-    #mapster_wrap_0 {opacity: 0;z-index: 1;}
+    body{margin:0px;padding:0px;position:relative; }
+    /* Make screen full height */
+    html { height: 100%;} 
+    body { height: 100%;}    
+    /* Center the thing */
+    body {display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column;}
+    body{background:#2ee3f1;}
+    body .video-container{width:1600px;margin-left:auto;margin-right:auto;display:block;max-width:100%;box-sizing:border-box;text-align:center;}
+    body .video-container{position:relative;height:100%;z-index:100;}
+    body .video-container img{max-width:100%;width:auto;height:100%;position:relative;z-index:1;opacity:0;}
+    body .video-container video{position:absolute;top:0;left:0;right:0;bottom: 0;height: 100%;}
+    .bottom-right { position: absolute; bottom: 30px; right: 30px; z-index: 100;}
+    .bottom-right #toggle-mute.icon {display:inline-block; margin-right: 10px; margin-top: -10px; width: 49px; height: 36px; background-size: 100% auto;background-image:url(<?= Theme::getImage('icon-mute', 'png'); ?>) }
+    .bottom-right #toggle-mute.playing { background-image:url(<?= Theme::getImage('icon-unmute', 'png'); ?>)}
+    /* .bottom-right .logo { display:inline-block; width: 200px;}
+    .bottom-right .logo img{ max-width: 100%;} */
 </style>
 
 </head>
 
-<body <?php body_class(); ?>>
 
-    <link rel="preload" as="video" href="<?= get_template_directory_uri() ?>/public/videos/field.mp4"> 
-    <link rel="preload" as="image" href="<?= get_template_directory_uri() ?>/public/images/fieldPoster.jpg"> 
+<body <?php body_class(); ?>>
+    <?php 
+    $entry_video = get_field( 'entry_video', 'option' ); 
+    $entry_video_url = $entry_video['url']; 
+
+    $looping_video = get_field( 'looping_video', 'option' ); 
+    $looping_video_url = $looping_video['url']; 
+
+    $looping_poster_image = get_field( 'looping_poster_image', 'option' ); 
+    $looping_poster_image_url = get_field( 'looping_poster_image', 'option' )['url']; 
+
+    $entry_poster_image = get_field( 'entry_poster_image', 'option' ); 
+    $entry_poster_image_url = get_field( 'entry_poster_image', 'option' )['url']; 
+    ?>
+
+    <link rel="preload" as="video" href="<?= $looping_video_url; ?>"> 
+    <link rel="preload" as="image" href="<?= $looping_poster_image_url; ?>"> 
 
     <div class="video-container">
         <img src="<?= Theme::getImage('field', 'png'); ?>" usemap="#fieldmap" class="field-image">
-        <video id="video" onloadeddata="swapPoster();" onended="swapVideo();" width="100%" name="Main Stage" autoplay muted poster="<?= get_template_directory_uri() ?>/public/images/entryPoster.jpg">
+        <video id="video" onloadeddata="swapPoster();" onended="swapVideo();" width="100%" name="Main Stage" autoplay muted poster="<?= $entry_poster_image_url; ?>">
         </video>
     </div>
+
+    <?php /* ?>
+    <div class="bottom-right">
+        <div class="logo"><img src="<?= // Theme::getImage('logo','png'); ?>" alt="Warner Music Summer Time Festival"></div>
+    </div>
+    <?php */ ?>
 
     <?php if ( have_rows( 'stages', 5 ) ) : ?>
     <?php while ( have_rows( 'stages', 5 ) ) : the_row(); ?>
@@ -72,8 +99,8 @@
     <map name="fieldmap">
         <area alt="Speakers Corner" title="Speakers Corner" href="<?= $speakers_corner; ?>" coords="255,211,259,141,258,96,401,76,404,136,474,156,473,222,254,229" shape="poly">
         <area alt="Bar" title="Bar" href="<?= $bar; ?>" coords="339,424,377,390,330,254,177,259,158,416" shape="poly">
-        <area alt="Creative Corner" title="Creative Corner" href="<?= $creative_corner; ?>" coords="201,457,429,457,440,506,474,516,480,557,172,584" shape="poly">
-        <area alt="Unfairground" title="Unfairground" href="<?= $unfairground; ?>" coords="534,462,676,461,682,580,816,575,816,662,630,687,519,659" shape="poly">
+        <area alt="Kidz Corner" title="Kidz Corner" href="<?= $creative_corner; ?>" coords="201,457,429,457,440,506,474,516,480,557,172,584" shape="poly">
+        <area alt="The Snuts Tombola" title="The Snuts Tombola" href="<?= $unfairground; ?>" coords="534,462,676,461,682,580,816,575,816,662,630,687,519,659" shape="poly">
         <area alt="Dance Stage" title="Dance Stage" href="<?= $dance_stage; ?>" coords="853,722,886,599,1028,539,1098,638,1093,752" shape="poly">
         <area alt="The Future Stage" title="The Future Stage" href="<?= $future_stage; ?>" coords="1010,484,1147,618,1345,616,1349,544,1288,392,1124,400,999,402,1004,447" shape="poly">
         <area alt="Comedy Tent" title="Comedy Tent" href="<?= $comedy_tent; ?>" coords="902,437,825,267,737,270,700,396,743,458" shape="poly">
@@ -83,9 +110,10 @@
     </map>
 
     <script>
-        var initialVideo = window.App.urls.theme + '/public/videos/entry.mp4';
-        var loopVideo = window.App.urls.theme + '/public/videos/field.mp4';
-        var fieldPoster = window.App.urls.theme + '/public/images/fieldPoster.jpg';
+        var initialVideo = '<?= $entry_video_url; ?>';
+        var loopVideo = '<?= $looping_video_url; ?>';
+        var fieldPoster = '<?= $looping_poster_image_url; ?>';
+        
         var video = document.getElementById('video');
         var source = document.createElement('source');
         var clickToStart = document.getElementById('clickToStart');

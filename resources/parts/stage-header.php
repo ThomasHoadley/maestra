@@ -8,6 +8,8 @@
     $before_title = get_field( 'before_title', $post_id);
     $sub_title = get_field( 'sub_title', $post_id);
     $max_content_width = get_field( 'max_content_width', $post_id);
+
+    $custom_styles = get_field( 'custom_styles');
 ?>
 
 <?php 
@@ -39,6 +41,9 @@
         echo '<style>
             .content-container {width:'.$max_content_width.'px !important}
         </style>';
+    }
+    if($custom_styles) {
+        echo '<style>'.$custom_styles.'</style>';
     }
     
 

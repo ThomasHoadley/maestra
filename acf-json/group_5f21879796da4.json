@@ -151,6 +151,25 @@
             "max_height": "",
             "max_size": "",
             "mime_types": ""
+        },
+        {
+            "key": "field_5f23151802324",
+            "label": "Custom styles",
+            "name": "custom_styles",
+            "type": "textarea",
+            "instructions": "Add custom style to the page here.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
         }
     ],
     "location": [
@@ -193,5 +212,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1596106070
+    "modified": 1596134739
 }
