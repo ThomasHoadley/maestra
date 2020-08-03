@@ -36,9 +36,10 @@
     body {display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column;}
     body{background:#2ee3f1;}
     body .video-container{width:1600px;margin-left:auto;margin-right:auto;display:block;max-width:100%;box-sizing:border-box;text-align:center;}
-    body .video-container{position:relative;height:100%;z-index:100;}
-    body .video-container img{max-width:100%;width:auto;height:100%;position:relative;z-index:1;opacity:0;}
-    body .video-container video{position:absolute;top:0;left:0;right:0;bottom: 0;height: 100%;}
+    body .video-container{position:relative;height:auto;z-index:100;}
+    body .video-container img{max-width:100%;width:auto;height:auto;position:relative;z-index:1;opacity:1;}
+    body .video-container video{position:absolute;top:0;left:0;right:0;bottom: 0;height: auto;}
+    body .field-image {opacity: 0 !important;}
     .bottom-right { position: absolute; bottom: 30px; right: 30px; z-index: 100;}
     .bottom-right #toggle-mute.icon {display:inline-block; margin-right: 10px; margin-top: -10px; width: 49px; height: 36px; background-size: 100% auto;background-image:url(<?= Theme::getImage('icon-mute', 'png'); ?>) }
     .bottom-right #toggle-mute.playing { background-image:url(<?= Theme::getImage('icon-unmute', 'png'); ?>)}
@@ -116,16 +117,16 @@
 <?php endif; ?>
 
     <map name="fieldmap">
-        <area alt="Speakers Corner" title="Speakers Corner" href="<?= $speakers_corner; ?>" coords="255,211,259,141,258,96,401,76,404,136,474,156,473,222,254,229" shape="poly">
-        <area alt="Bar" title="Bar" href="<?= $bar; ?>" coords="339,424,377,390,330,254,177,259,158,416" shape="poly">
-        <area alt="Kidz Corner" title="Kidz Corner" href="<?= $creative_corner; ?>" coords="201,457,429,457,440,506,474,516,480,557,172,584" shape="poly">
-        <area alt="The Snuts Tombola" title="The Snuts Tombola" href="<?= $unfairground; ?>" coords="534,462,676,461,682,580,816,575,816,662,630,687,519,659" shape="poly">
-        <area alt="Dance Stage" title="Dance Stage" href="<?= $dance_stage; ?>" coords="853,722,886,599,1028,539,1098,638,1093,752" shape="poly">
-        <area alt="The Future Stage" title="The Future Stage" href="<?= $future_stage; ?>" coords="1010,484,1147,618,1345,616,1349,544,1288,392,1124,400,999,402,1004,447" shape="poly">
-        <area alt="Comedy Tent" title="Comedy Tent" href="<?= $comedy_tent; ?>" coords="902,437,825,267,737,270,700,396,743,458" shape="poly">
-        <area alt="Food Tent" title="Food Tent" href="<?= $food_tent; ?>" coords="433,318,640,318,631,394,535,431,409,426,416,356" shape="poly">
-        <area alt="Main Stage" title="Main Stage" href="<?= $main_stage; ?>" coords="842,250,847,89,538,83,502,157,510,273" shape="poly">
-        <area alt="Healing Fields" title="Healing Fields" href="<?= $healing_fields; ?>" coords="1058,221,1130,112,1204,117,1246,219,1266,301,1062,314" shape="poly">
+        <area target="" alt="Speakers Corner" title="Speakers Corner" href="<?= $speakers_corner; ?>" coords="335,224,495,220,526,167,503,138,430,124,406,45,284,92,250,134,233,208,287,208" shape="poly">
+        <area target="" alt="Bar" title="Bar" href="<?= $bar; ?>" coords="387,420,363,371,330,356,324,298,270,264,141,299,123,353,122,401,161,461,344,471" shape="poly">
+        <area target="" alt="Kidz Zone" title="Kidz Zone" href="<?= $creative_corner; ?>" coords="180,522,271,487,451,512,470,573,521,586,529,609,332,624,231,654,138,621" shape="poly">
+        <area target="" alt="The Snuts Tombola" title="The Snuts Tombola" href="<?= $unfairground; ?>" coords="591,764,570,640,589,541,653,514,696,516,742,554,756,648,914,660,937,730,912,748,712,783" shape="poly">
+        <area target="" alt="Dance Stage" title="Dance Stage" href="<?= $dance_stage; ?>" coords="1009,816,998,769,1007,708,1031,646,1144,622,1217,656,1222,718,1274,759,1268,856,1115,861" shape="poly">
+        <area target="" alt="The Future Stage" title="The Future Stage" href="<?= $future_stage; ?>" coords="1559,706,1607,636,1497,449,1432,498,1357,500,1324,436,1162,434,1174,536,1257,592,1270,654,1352,702,1475,706" shape="poly">
+        <area target="" alt="Comedy Tent" title="Comedy Tent" href="<?= $comedy_tent; ?>" coords="1028,481,928,275,852,266,826,318,767,403,797,473,871,508,983,506" shape="poly">
+        <area target="" alt="Food Tent" title="Food Tent" href="<?= $food_tent; ?>" coords="494,474,603,468,710,423,713,336,584,336,561,356,494,344,462,348,438,380,443,434" shape="poly">
+        <area target="" alt="Main Stage" title="Main Stage" href="<?= $main_stage; ?>" coords="540,267,756,263,783,243,921,253,972,197,982,113,963,76,766,64,673,40,572,68,546,137" shape="poly">
+        <area target="" alt="Healing Fields" title="Healing Fields" href="<?= $healing_fields; ?>" coords="1224,261,1282,132,1346,99,1376,100,1391,142,1416,151,1432,204,1479,213,1441,264,1397,310,1267,310,1239,298" shape="poly">
     </map>
 
     <script>

@@ -36,9 +36,10 @@
     body {display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column;}
     body{background:#2ee3f1;}
     body .video-container{width:1600px;margin-left:auto;margin-right:auto;display:block;max-width:100%;box-sizing:border-box;text-align:center;}
-    body .video-container{position:relative;height:100%;z-index:100;}
-    body .video-container img{max-width:100%;width:auto;height:100%;position:relative;z-index:1;opacity:0;}
-    body .video-container video{position:absolute;top:0;left:0;right:0;bottom: 0;height: 100%;}
+    body .video-container{position:relative;height:auto;z-index:100;}
+    body .video-container img{max-width:100%;width:auto;height:auto;position:relative;z-index:1;opacity:1;}
+    body .video-container video{position:absolute;top:0;left:0;right:0;bottom: 0;height: auto;}
+    body .field-image {opacity: 0 !important;}
     .bottom-right { position: absolute; bottom: 30px; right: 30px; z-index: 100;}
     .bottom-right #toggle-mute.icon {display:inline-block; margin-right: 10px; margin-top: -10px; width: 49px; height: 36px; background-size: 100% auto;background-image:url(<?= Theme::getImage('icon-mute', 'png'); ?>) }
     .bottom-right #toggle-mute.playing { background-image:url(<?= Theme::getImage('icon-unmute', 'png'); ?>)}
@@ -106,7 +107,7 @@
         <area target="" alt="Comedy Tent" title="Comedy Tent" href="<?= $comedy_tent; ?>" coords="1028,481,928,275,852,266,826,318,767,403,797,473,871,508,983,506" shape="poly">
         <area target="" alt="Food Tent" title="Food Tent" href="<?= $food_tent; ?>" coords="494,474,603,468,710,423,713,336,584,336,561,356,494,344,462,348,438,380,443,434" shape="poly">
         <area target="" alt="Main Stage" title="Main Stage" href="<?= $main_stage; ?>" coords="540,267,756,263,783,243,921,253,972,197,982,113,963,76,766,64,673,40,572,68,546,137" shape="poly">
-        <area target="" alt="Healing Fields" title="Healing Fields" href="<?= $healing_fields; ?>" coords="1235,275,1282,132,1346,99,1376,100,1391,142,1416,151,1432,204,1467,216,1437,259,1397,310,1267,310" shape="poly">
+        <area target="" alt="Healing Fields" title="Healing Fields" href="<?= $healing_fields; ?>" coords="1224,261,1282,132,1346,99,1376,100,1391,142,1416,151,1432,204,1479,213,1441,264,1397,310,1267,310,1239,298" shape="poly">
     </map>
 
     <script>
