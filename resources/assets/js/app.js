@@ -1,4 +1,5 @@
 import "./helpers"
+
 (function () {
 
   var matched, browser;
@@ -62,7 +63,6 @@ import "./helpers"
 })();
 
 jQuery(document).ready(function ($) {
-
   // Get browser and add to body
   $.each($.browser, function (i) {
     $('body').addClass(i);

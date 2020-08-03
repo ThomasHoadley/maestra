@@ -1,0 +1,17 @@
+.mobile-stages {
+  text-align: center;
+  @media (min-width: 500px) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    .stage {
+      flex-basis: 50%;
+      width: 50%;
+      align-content: center;
+      justify-content: center;
+      text-align: center;
+    }
+  }
+}

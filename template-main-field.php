@@ -1,6 +1,14 @@
 <?php 
     // Template Name: Main Field
 ?>
+<?php 
+define('__ROOT__', dirname(dirname(__FILE__)));
+require_once(__ROOT__."/maestra/resources/assets/inc/Mobile_Detect.php");
+$detect = new Mobile_Detect;
+if ($detect->isMobile() && !$detect->isTablet()) {
+    wp_redirect( 'main-field-mobile' );
+}
+?>
 <!DOCTYPE html>
 <!--[if IE 9]><html <?php language_attributes(); ?> class="ie9"><![endif]-->
 <!--[if !IE]><!--><html <?php language_attributes(); ?>><!--<![endif]-->
@@ -11,7 +19,6 @@
   <!-- Fav icon goes here -->
 
   <?php wp_head(); ?>
-
   <script>
       window.App = <?= json_encode([
       'urls'      => [
@@ -26,7 +33,6 @@
       'data'      => []
     ]); ?>;
   </script>
-
 <style>
     body{margin:0px;padding:0px;position:relative; }
     /* Make screen full height */
@@ -128,7 +134,7 @@
         <area target="" alt="The Snuts Tombola" title="The Snuts Tombola" href="<?= $unfairground; ?>" coords="591,764,570,640,589,541,653,514,696,516,742,554,756,648,914,660,937,730,912,748,712,783" shape="poly">
         <area target="" alt="Dance Stage" title="Dance Stage" href="<?= $dance_stage; ?>" coords="1009,816,998,769,1007,708,1031,646,1144,622,1217,656,1222,718,1274,759,1268,856,1115,861" shape="poly">
         <area target="" alt="The Future Stage" title="The Future Stage" href="<?= $future_stage; ?>" coords="1559,706,1607,636,1497,449,1432,498,1357,500,1324,436,1162,434,1174,536,1257,592,1270,654,1352,702,1475,706" shape="poly">
-        <area target="" alt="Comedy Tent" title="Comedy Tent" href="<?= $comedy_tent; ?>" coords="1028,481,928,275,852,266,826,318,767,403,797,473,871,508,983,506" shape="poly">
+        <area target="" alt="Poetry Stage" title="Poetry Stage" href="<?= $comedy_tent; ?>" coords="1028,481,928,275,852,266,826,318,767,403,797,473,871,508,983,506" shape="poly">
         <area target="" alt="Food Tent" title="Food Tent" href="<?= $food_tent; ?>" coords="494,474,603,468,710,423,713,336,584,336,561,356,494,344,462,348,438,380,443,434" shape="poly">
         <area target="" alt="Main Stage" title="Main Stage" href="<?= $main_stage; ?>" coords="540,267,756,263,783,243,921,253,972,197,982,113,963,76,766,64,673,40,572,68,546,137" shape="poly">
         <area target="" alt="Healing Fields" title="Healing Fields" href="<?= $healing_fields; ?>" coords="1224,261,1282,132,1346,99,1376,100,1391,142,1416,151,1432,204,1479,213,1441,264,1397,310,1267,310,1239,298" shape="poly">

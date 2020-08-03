@@ -26,7 +26,7 @@
         echo '<style>
             .stage-header .title,
             .stage-header .before-title,
-            .stage-header .sub-title,
+            .stage-sub-header .sub-title,
             .left .return a,
             .content *,
             .right h4
@@ -69,15 +69,16 @@
                 echo get_the_title($post_id);
             }?>
         </h2>
-
-        <?php if($sub_title) { ?>
-            <div class="sub-title">
-                <p><?= $sub_title; ?></p>
-            </div>
-        <?php }; ?>
     </div>
 
-<div class="right col">
+    <div class="right col">
         <?php get_template_part('resources/parts/stage-image'); ?>
     </div>
 </div>
+<?php if($sub_title) { ?>
+    <div class="stage-sub-header">
+        <div class="sub-title">
+            <p><?= $sub_title; ?></p>
+        </div>
+    </div>
+<?php }; ?>

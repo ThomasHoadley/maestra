@@ -15,33 +15,175 @@
 
 .stage-header {
     position: relative;
-    padding-top: 2em;
     z-index: 200;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
     @media (min-width: 768px) {
+        padding-top: 2em;
+    }
+    .col {
+        width: 100%;
+        max-width: 100%;
+        justify-content: center;
+        align-content: center;
+        text-align: center;
+    }   
+    .col.left {
+        display: none;
+    }
+    .col.middle {
+        order: 2;
+        margin-bottom: 20px;
+        .title {
+            font-size: 1.5em;
+        }
+    }
+    .col.right {
+        order: 1;
+        .stage-image-container .stage-image img {
+            max-width: 100%;
+            width: 200px;
+            height: auto;
+        }
+        .back-button-container {
+            display: none;
+        }
+    }
+    @media (min-width: 600px) {
+        .col.left {
+            display: block;
+            .return-container {
+                padding-right: 0px;
+                display: block;
+                width: 200px;
+                margin-left: auto;
+                margin-right: auto;
+                position: absolute;
+                top: 20px;
+                left: 0;
+                .return {
+                    width: 100%;
+                    transform: rotate(0deg);
+                    top: 0;
+                    left: 0;
+                    margin-bottom: 10px;
+                    font-size: 1em;
+                    line-height: 1.2;
+                }
+                .flag {
+                    top: 0;
+                    max-height: 50px;
+                }
+            }
+        }
+    } 
+    @media (min-width: 700px) {
         display: flex;
         justify-content: center;
-        .left {
-            width: 300px;
-        }
-        .right {
-            width: 400px;
-        }
-        .middle {
-            flex-basis: calc(100% - 700px);
-        }
+        flex-direction: row;
         .col {
             display: flex;
             flex-direction: column;
             align-items: center;
+            order: initial;
         }
-        .left {
+        .col.left {
             justify-content: flex-start;
+            position: relative;
+            order: initial;
+            width: 200px;
+            .return-container {
+                position: relative;
+                .return {
+                    width: 300px;
+                }
+            }
         }
-        .middle {
+        .col.middle {
             justify-content: center;
+            order: initial;
+            flex-basis: calc(100% - 400px);
+            width: calc(100% - 400px);
         }
-        .right {
+        .col.right {
             align-items: flex-start;
+            order: initial;
+            width: 200px;
+            .back-button-container {
+                display: block;
+            }
+        }
+    }
+
+    @media (min-width: 800px) {
+        .col {
+            &.left {
+                transform: rotate(-12deg);
+            }
+            &.middle {
+                .title {
+                    font-size: 5vw;   
+                }
+            }
+        }
+    }
+
+     @media (min-width: 1000px) {
+        .col {
+            &.middle {
+                .title {
+                    font-size: 5vw;   
+                }
+            }
+        }
+    }
+
+    @media (min-width: 1150px) {
+        .col.left {
+            width: 300px;
+            .return-container {
+                width: 100%;
+                .return {
+                    font-size: 1.4em;
+                    line-height: 1.2;
+                }
+                .flag {
+                    top: 30px;
+                    left: 20px;
+                    max-height: 100px;
+                }
+            }
+        }
+        .col.right {
+            width: 300px;
+            img {
+                width: 100% !important;
+            }
+        }
+        .col.middle {
+            flex-basis: calc(100% - 600px);
+        }
+    }
+
+    @media (min-width: 1300px) {
+        .col.left {
+            width: 400px;
+        }
+        .col.right {
+            width: 400px;
+            img {
+                width: 100% !important;
+            }
+            .back-button {
+                right: -50px;
+                width: 260px;
+                font-size: 1.4em !important;
+                line-height: 1.2 !important;
+            }
+        }
+        .col.middle {
+            flex-basis: calc(100% - 800px);
         }
     }
 
@@ -55,6 +197,7 @@
         }
         .return-container {
             position: relative;
+            padding-right: 20px;
             .flag {
                 position: absolute;
                 z-index: 200;
@@ -73,9 +216,14 @@
             z-index: 300;
             position: relative;
             transition: 0.1s ease-in;
+            margin-top: 0px;
+            font-size: 1.5em;
             a {
                 text-decoration: none;
                 display: block;
+            }
+            @media (min-width: 950px) {
+                font-size: 1.5em;
             }
         }        
     }
@@ -85,9 +233,14 @@
             text-align: center;
             margin-top: 0px;
             margin-bottom: 0px;
-            font-size: 6em;
-            font-size: 6vw;
+            font-size: 1.5em;
+            font-size: 4vw;
             line-height: 1.2;
+
+            @media (min-width: 950px) {
+                font-size: 6vw;
+                font-size: 3em;
+            }
 
             &.normal-font {
                 font-family: $bodyFont;
@@ -104,17 +257,7 @@
                 margin-top: 0px;
             }
         }
-        .sub-title {
-            text-align: center;
-            font-size: 1.5em;
-            margin-top: 1em;
-            margin-bottom: 1em;
-            width: 800px;
-            line-height: 1;
-            p {
-                margin-top: 0px;
-            }
-        }    
+        
     }
 
     .right {
@@ -143,10 +286,9 @@
                 .back-button {
                     transform: rotate(12deg);
                     top: 20px;
-                    font-size: 1.2rem;
+                    font-size: 1em;
+                    line-height: 1.2;
                     text-align: center;
-                    width: 260px;
-                    right: -50px;
                     position: relative;
                     margin-top: 0px;
                     color: $blue;
@@ -154,6 +296,23 @@
             }
         }        
     }
+}
+
+.stage-sub-header {
+    .sub-title {
+        text-align: center;
+        font-size: 1.5em;
+        margin-top: 0em;
+        margin-bottom: 1em;
+        width: 800px;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1;
+        p {
+            margin-top: 0px;
+        }
+    }    
 }
 
 @keyframes mainfieldshake {

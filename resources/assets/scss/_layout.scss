@@ -108,7 +108,13 @@
     .content {
         z-index: 1;
         position: relative;
-        padding: 60px 30px;
+        padding: 60px 5px;
+        @media (min-width: 500px) {
+            padding: 60px 15px;
+        }
+        @media (min-width: 768px) {
+            padding: 60px 30px;
+        }
         & > h1, 
         & > h2,
         & > h3,

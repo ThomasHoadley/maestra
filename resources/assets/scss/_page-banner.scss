@@ -41,9 +41,12 @@
         font-weight: 500;
         letter-spacing: 0.15em;
         text-align: center;
-        font-size: 1em;
         text-transform: uppercase;
         color: white;
+        font-size: 0.8em;
+        @media (min-width: 768px) {
+            font-size: 1em;
+        }
         .dark-banner & {
             color: $blue;
         }
