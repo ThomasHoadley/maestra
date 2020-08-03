@@ -34,7 +34,9 @@
     body { height: 100%;}    
     /* Center the thing */
     body {display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column;}
-    body{background:#2ee3f1;}
+    body{background:rgba(41,223,239,1);}
+    body.chrome{background:#30e5f3;}
+    body.webkit{background:#38e6f3;}
     body .video-container{width:1600px;margin-left:auto;margin-right:auto;display:block;max-width:100%;box-sizing:border-box;text-align:center;}
     body .video-container{position:relative;height:auto;z-index:100;}
     body .video-container img{max-width:100%;width:auto;height:auto;position:relative;z-index:1;opacity:1;}
@@ -70,7 +72,8 @@
 
     <div class="video-container">
         <img src="<?= $looping_poster_image_url; ?>" usemap="#fieldmap" class="field-image">
-        <video id="video" onloadeddata="swapPoster();" onended="swapVideo();" width="100%" name="Main Stage" autoplay muted poster="<?= $entry_poster_image_url; ?>">
+        <video id="video" onended="swapVideo();" width="100%" name="Main Stage" autoplay muted poster="<?= $entry_poster_image_url; ?>">
+            <source src="<?= $entry_video_url; ?>" type="video/mp4"> 
         </video>
     </div>
 
@@ -119,35 +122,41 @@
          */
     ?>
     <script>
-        var initialVideo = '<?= $entry_video_url; ?>';
-        var loopVideo = '<?= $looping_video_url; ?>';
-        var fieldPoster = '<?= $looping_poster_image_url; ?>';
-        
         var video = document.getElementById('video');
-        var source = document.createElement('source');
-        
-        source.setAttribute('src', initialVideo);
-        video.appendChild(source);
-        
-        function swapPoster() {
-            // video.setAttribute('poster', fieldPoster);
-        }
-    
-        // need to know the current meta data.
-        document.getElementById('video').addEventListener('loadedmetadata', function() {
-            // this.currentTime = 50;
-        }, false);
 
         function swapVideo() {
-            video.currentTime = 3.7;
-            // video.play();
-            // video.pause();
-            // source.setAttribute('src', loopVideo);
-            // video.load();
-            // video.setAttribute('loop', "true")
-            // video.play();
+            video.currentTime = 4.03;
+            video.play();
         }
     </script>
-
+    <script>
+        // Opera 8.0+
+        var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+        // Firefox 1.0+
+        var isFirefox = typeof InstallTrigger !== 'undefined';
+        // Safari 3.0+ "[object HTMLElementConstructor]" 
+        var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
+        // Internet Explorer 6-11
+        var isIE = /*@cc_on!@*/false || !!document.documentMode;
+        // Edge 20+
+        var isEdge = !isIE && !!window.StyleMedia;
+        // Chrome 1 - 79
+        var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
+        // Edge (based on chromium) detection
+        var isEdgeChromium = isChrome && (navigator.userAgent.indexOf("Edg") != -1);
+        // Blink engine detection
+        var isBlink = (isChrome || isOpera) && !!window.CSS;
+        var output = 'nobrowser';
+        output = (isFirefox ? 'isFirefox' : '');
+        output = (isOpera ? 'isOpera' : '');
+        output = (isSafari ? 'isSafari' : '');
+        output = (isIE ? 'isIE' : '');
+        output = (isEdge ? 'isEdge' : '');
+        output = (isChrome ? 'isChrome' : '');
+        output = (isEdgeChromium ? 'isEdgeChromium' : '');
+        output = (isBlink ? 'isBlink' : '');
+        console.log(output);
+        // document.body.classList.add(output);
+    </script>
 <?php
 get_footer();

@@ -9,6 +9,7 @@
     $sub_title = get_field( 'sub_title', $post_id);
     $max_content_width = get_field( 'max_content_width', $post_id);
 
+    $change_header_font = get_field( 'change_header_font' );
     $custom_styles = get_field( 'custom_styles');
 ?>
 
@@ -61,7 +62,7 @@
                 <p><?= $before_title; ?></p>
             </div>
         <?php }; ?>        
-        <h2 class="title">
+        <h2 class="title <?= ($change_header_font == 1 ? 'normal-font' : ''); ?>">
             <?php if($custom_title) {
                 echo $custom_title;
             } else {

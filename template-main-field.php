@@ -34,14 +34,18 @@
     body { height: 100%;}    
     /* Center the thing */
     body {display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column;}
-    body{background:#2ee3f1;}
+    /* These colours can differ across fields */
+    body{background:rgba(41,223,239,1);}
+    body.chrome{background:#2de6f5;}
+    body.webkit{background:#38e6f3;}
+    body.mozilla{background:rgb(43, 226, 242);}
     body .video-container{width:1600px;margin-left:auto;margin-right:auto;display:block;max-width:100%;box-sizing:border-box;text-align:center;}
     body .video-container{position:relative;height:auto;z-index:100;}
     body .video-container img{max-width:100%;width:auto;height:auto;position:relative;z-index:1;opacity:1;}
     body .video-container video{position:absolute;top:0;left:0;right:0;bottom: 0;height: auto;}
     body .field-image {opacity: 0 !important;}
     .bottom-right { position: absolute; bottom: 30px; right: 30px; z-index: 100;}
-    .bottom-right #toggle-mute.icon {display:inline-block; margin-right: 10px; margin-top: -10px; width: 49px; height: 36px; background-size: 100% auto;background-image:url(<?= Theme::getImage('icon-mute', 'png'); ?>) }
+    .bottom-right #toggle-mute.icon {display:inline-block; margin-right: 10px; margin-top: -10px; width: 49px; height: 36px; background-size: 100% auto;background-image:url(<?= Theme::getImage('icon-mute', 'png'); ?>);cursor:pointer; }
     .bottom-right #toggle-mute.playing { background-image:url(<?= Theme::getImage('icon-unmute', 'png'); ?>)}
     /* .bottom-right .logo { display:inline-block; width: 200px;}
     .bottom-right .logo img{ max-width: 100%;} */
@@ -92,6 +96,7 @@
     <div class="video-container">
         <img src="<?= $looping_poster_image_url; ?>" usemap="#fieldmap" class="field-image">
         <video id="video" width="100%" name="Main Field" autoplay loop muted poster="<?= $looping_poster_image_url; ?>">
+            <source src="<?= $looping_video_url; ?>" type="video/mp4"> 
         </video>
     </div>
     
@@ -130,17 +135,6 @@
     </map>
 
     <script>
-        // Handle the video
-        
-        var initialVideo = '<?= $looping_video_url; ?>';
-        var video = document.getElementById('video');
-        var source = document.createElement('source');
-        
-        source.setAttribute('src', initialVideo);
-        video.appendChild(source);
-        video.play();
-
-
         // Handle the audio
 
         var muteToggle = document.getElementById('toggle-mute');

@@ -3,6 +3,25 @@
     "title": "Header",
     "fields": [
         {
+            "key": "field_5f282696057fd",
+            "label": "Change Header Font",
+            "name": "change_header_font",
+            "type": "true_false",
+            "instructions": "Select this box if the page name has a number in it, e.g. s1mba. This is because the header font does not support numbers and won't render correctly.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_5f219f37dabf9",
             "label": "Before Title",
             "name": "before_title",
@@ -212,5 +231,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1596134739
+    "modified": 1596466906
 }
