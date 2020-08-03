@@ -110,6 +110,14 @@
         <area target="" alt="Healing Fields" title="Healing Fields" href="<?= $healing_fields; ?>" coords="1224,261,1282,132,1346,99,1376,100,1391,142,1416,151,1432,204,1479,213,1441,264,1397,310,1267,310,1239,298" shape="poly">
     </map>
 
+    <?php 
+        /**
+         * 1. Show the gate poster
+         * 2. When the video is ready to play play the video.
+         * 3. On video end, jump back to the video frame that 
+         * 4. So we only have one video.
+         */
+    ?>
     <script>
         var initialVideo = '<?= $entry_video_url; ?>';
         var loopVideo = '<?= $looping_video_url; ?>';
@@ -122,14 +130,21 @@
         video.appendChild(source);
         
         function swapPoster() {
-            video.setAttribute('poster', fieldPoster);
+            // video.setAttribute('poster', fieldPoster);
         }
+    
+        // need to know the current meta data.
+        document.getElementById('video').addEventListener('loadedmetadata', function() {
+            // this.currentTime = 50;
+        }, false);
 
         function swapVideo() {
-            video.pause();
-            source.setAttribute('src', loopVideo);
-            video.load();
-            video.setAttribute('loop', "true")
+            video.currentTime = 3.7;
+            // video.play();
+            // video.pause();
+            // source.setAttribute('src', loopVideo);
+            // video.load();
+            // video.setAttribute('loop', "true")
             // video.play();
         }
     </script>

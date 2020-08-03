@@ -10,9 +10,8 @@ jQuery(document).ready(function ($) {
       //alert(data.state+":"+data.selected);
     }
     img.mapster({
-      noHrefIsMask: false,
       // onStateChange: state_change,
-      // fillColor: '0a7a0a',
+      fillColor: false,
       // fillOpacity: 0.7,
       // mapKey: "group",
       // strokeWidth: 2,
