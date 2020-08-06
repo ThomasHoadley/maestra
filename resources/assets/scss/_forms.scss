@@ -11,6 +11,12 @@
     margin-right: auto !important;
     display: block;
     background: $red !important;
+    color: white !important;
+    font-weight: bold;
+    border: 3px dashed #fff !important;
+    font-size: 1em;
+    border-radius: 3px;
+    padding: .5em 1.25em;
     &:hover {
         color: white !important;
     }

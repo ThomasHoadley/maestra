@@ -1,0 +1,1 @@
+document.querySelector('label[for="user_login"').innerHTML = "Email"; 

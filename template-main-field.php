@@ -2,6 +2,12 @@
     // Template Name: Main Field
 ?>
 <?php 
+  if ( !is_user_logged_in() ) {
+      // auth_redirect();
+      $url = site_url('/wp-login.php?action=register');
+      wp_redirect( $url );
+
+  } 
 define('__ROOT__', dirname(dirname(__FILE__)));
 require_once(__ROOT__."/maestra/resources/assets/inc/Mobile_Detect.php");
 $detect = new Mobile_Detect;
@@ -92,7 +98,7 @@ if ($detect->isMobile() && !$detect->isTablet()) {
         ] 
     </script>
 
-    <audio autoplay id="audio">
+    <audio id="audio">
         <source id="audiosource" src="<?= get_template_directory_uri(); ?>/public/music/<?= $music_array[$item];?>">
     </audio>
     
@@ -107,7 +113,7 @@ if ($detect->isMobile() && !$detect->isTablet()) {
     </div>
     
     <div class="bottom-right">
-        <div class="icon playing" id="toggle-mute"></div>
+        <div class="icon" id="toggle-mute"></div>
     </div>
 
     <?php if ( have_rows( 'stages', '5' ) ) : ?>
@@ -128,31 +134,45 @@ if ($detect->isMobile() && !$detect->isTablet()) {
 <?php endif; ?>
 
     <map name="fieldmap">
-        <area target="" alt="Speakers Corner" title="Speakers Corner" href="<?= $speakers_corner; ?>" coords="335,224,495,220,526,167,503,138,430,124,406,45,284,92,250,134,233,208,287,208" shape="poly">
-        <area target="" alt="Bar" title="Bar" href="<?= $bar; ?>" coords="387,420,363,371,330,356,324,298,270,264,141,299,123,353,122,401,161,461,344,471" shape="poly">
-        <area target="" alt="Kidz Zone" title="Kidz Zone" href="<?= $creative_corner; ?>" coords="180,522,271,487,451,512,470,573,521,586,529,609,332,624,231,654,138,621" shape="poly">
-        <area target="" alt="The Snuts Tombola" title="The Snuts Tombola" href="<?= $unfairground; ?>" coords="591,764,570,640,589,541,653,514,696,516,742,554,756,648,914,660,937,730,912,748,712,783" shape="poly">
-        <area target="" alt="Dance Stage" title="Dance Stage" href="<?= $dance_stage; ?>" coords="1009,816,998,769,1007,708,1031,646,1144,622,1217,656,1222,718,1274,759,1268,856,1115,861" shape="poly">
-        <area target="" alt="The Future Stage" title="The Future Stage" href="<?= $future_stage; ?>" coords="1559,706,1607,636,1497,449,1432,498,1357,500,1324,436,1162,434,1174,536,1257,592,1270,654,1352,702,1475,706" shape="poly">
-        <area target="" alt="Poetry Stage" title="Poetry Stage" href="<?= $comedy_tent; ?>" coords="1028,481,928,275,852,266,826,318,767,403,797,473,871,508,983,506" shape="poly">
-        <area target="" alt="Food Tent" title="Food Tent" href="<?= $food_tent; ?>" coords="494,474,603,468,710,423,713,336,584,336,561,356,494,344,462,348,438,380,443,434" shape="poly">
-        <area target="" alt="Main Stage" title="Main Stage" href="<?= $main_stage; ?>" coords="540,267,756,263,783,243,921,253,972,197,982,113,963,76,766,64,673,40,572,68,546,137" shape="poly">
-        <area target="" alt="Healing Fields" title="Healing Fields" href="<?= $healing_fields; ?>" coords="1224,261,1282,132,1346,99,1376,100,1391,142,1416,151,1432,204,1479,213,1441,264,1397,310,1267,310,1239,298" shape="poly">
+        <area alt="Speakers Corner" title="Speakers Corner" href="<?= $speakers_corner; ?>" coords="335,224,495,220,526,167,503,138,430,124,406,45,284,92,250,134,233,208,287,208" shape="poly">
+        <area alt="Bar" title="Bar" href="<?= $bar; ?>" coords="387,420,363,371,330,356,324,298,270,264,141,299,123,353,122,401,161,461,344,471" shape="poly">
+        <area alt="Kidz Zone" title="Kidz Zone" href="<?= $creative_corner; ?>" coords="180,522,271,487,451,512,470,573,521,586,529,609,332,624,231,654,138,621" shape="poly">
+        <area alt="The Snuts Tombola" title="The Snuts Tombola" href="<?= $unfairground; ?>" coords="591,764,570,640,589,541,653,514,696,516,742,554,756,648,914,660,937,730,912,748,712,783" shape="poly">
+        <area alt="Dance Stage" title="Dance Stage" href="<?= $dance_stage; ?>" coords="1009,816,998,769,1007,708,1031,646,1144,622,1217,656,1222,718,1274,759,1268,856,1115,861" shape="poly">
+        <area alt="The Future Stage" title="The Future Stage" href="<?= $future_stage; ?>" coords="1559,706,1607,636,1497,449,1432,498,1357,500,1324,436,1162,434,1174,536,1257,592,1270,654,1352,702,1475,706" shape="poly">
+        <area alt="Poetry Stage" title="Poetry Stage" href="<?= $comedy_tent; ?>" coords="1028,481,928,275,852,266,826,318,767,403,797,473,871,508,983,506" shape="poly">
+        <area alt="Food Tent" title="Food Tent" href="<?= $food_tent; ?>" coords="494,474,603,468,710,423,713,336,584,336,561,356,494,344,462,348,438,380,443,434" shape="poly">
+        <area alt="Main Stage" title="Main Stage" href="<?= $main_stage; ?>" coords="540,267,756,263,783,243,921,253,972,197,982,113,963,76,766,64,673,40,572,68,546,137" shape="poly">
+        <area alt="Healing Fields" title="Healing Fields" href="<?= $healing_fields; ?>" coords="1224,261,1282,132,1346,99,1376,100,1391,142,1416,151,1432,204,1479,213,1441,264,1397,310,1267,310,1239,298" shape="poly">
     </map>
 
     <script>
         // Handle the audio
-
+        
         var muteToggle = document.getElementById('toggle-mute');
         var audio = document.getElementById('audio');
+        var muted = window.localStorage.getItem("muted");
 
+        if (muted == "false" || muted == undefined) {
+            audio.setAttribute("autoplay", "true");
+            window.localStorage.setItem('muted', 'false');
+            muteToggle.classList.add("playing");
+            audio.play();
+        }
+        
         muteToggle.addEventListener('click', function(el){
-            if (el.target.classList.contains('playing')) {
+            muted = window.localStorage.getItem("muted");
+
+            if (muted == "false" || muted == undefined) {
+                window.localStorage.setItem('muted', 'true');
                 audio.pause();
                 el.target.classList.remove("playing");
-            } else {
-                audio.play();
+            } else if (muted == "true"){
+                window.localStorage.setItem('muted', 'false');
                 el.target.classList.add("playing");
+                audio.play();
+            } else {
+                return;
             }
         });
 

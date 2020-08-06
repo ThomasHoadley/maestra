@@ -2,6 +2,13 @@
     // Template Name: Home Page
 ?>
 <?php 
+  if ( !is_user_logged_in() ) {
+      // auth_redirect();
+      $url = site_url('/wp-login.php?action=register');
+      wp_redirect( $url );
+
+  } 
+
 define('__ROOT__', dirname(dirname(__FILE__)));
 require_once(__ROOT__."/maestra/resources/assets/inc/Mobile_Detect.php");
 $detect = new Mobile_Detect;
@@ -54,6 +61,7 @@ if ($detect->isMobile() && !$detect->isTablet()) {
     .bottom-right { position: absolute; bottom: 30px; right: 30px; z-index: 100;}
     .bottom-right #toggle-mute.icon {display:inline-block; margin-right: 10px; margin-top: -10px; width: 49px; height: 36px; background-size: 100% auto;background-image:url(<?= Theme::getImage('icon-mute', 'png'); ?>) }
     .bottom-right #toggle-mute.playing { background-image:url(<?= Theme::getImage('icon-unmute', 'png'); ?>)}
+    .no-pointer-events {pointer-events: none;}
     /* .bottom-right .logo { display:inline-block; width: 200px;}
     .bottom-right .logo img{ max-width: 100%;} */
 </style>
@@ -76,21 +84,16 @@ if ($detect->isMobile() && !$detect->isTablet()) {
     $entry_poster_image_url = get_field( 'entry_poster_image', 'option' )['url']; 
     ?>
 
-    <link rel="preload" as="video" href="<?= $looping_video_url; ?>"> 
+    <link rel="preload" as="video" href="<?= $entry_video_url; ?>"> 
     <link rel="preload" as="image" href="<?= $looping_poster_image_url; ?>"> 
 
     <div class="video-container">
-        <img src="<?= $looping_poster_image_url; ?>" usemap="#fieldmap" class="field-image">
-        <video id="video" onended="swapVideo();" width="100%" name="Main Stage" autoplay muted poster="<?= $entry_poster_image_url; ?>">
+        <img src="<?= $looping_poster_image_url; ?>" usemap="#fieldmap" class="field-image no-pointer-events">
+        <video id="video" onended="updateVideo();" width="100%" name="Main Stage" autoplay muted poster="<?= $entry_poster_image_url; ?>" oncanplay="setTimer()">
             <source src="<?= $entry_video_url; ?>" type="video/mp4"> 
         </video>
     </div>
 
-    <?php /* ?>
-    <div class="bottom-right">
-        <div class="logo"><img src="<?= // Theme::getImage('logo','png'); ?>" alt="Warner Music Summer Time Festival"></div>
-    </div>
-    <?php */ ?>
 
     <?php if ( have_rows( 'stages', 5 ) ) : ?>
     <?php while ( have_rows( 'stages', 5 ) ) : the_row(); ?>
@@ -133,9 +136,19 @@ if ($detect->isMobile() && !$detect->isTablet()) {
     <script>
         var video = document.getElementById('video');
 
-        function swapVideo() {
+        function updateVideo() {
             video.currentTime = 4.03;
             video.play();
+        }
+
+        function setTimer() {
+            console.log('playing');
+            setTimeout(function(){
+                var images = document.querySelectorAll(".field-image");
+                for (i = 0; i < images.length; ++i) {
+                    images[i].classList.remove("no-pointer-events");
+                }
+            }, 3500);
         }
     </script>
     <script>
