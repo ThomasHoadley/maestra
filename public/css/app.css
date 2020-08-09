@@ -103,6 +103,12 @@ img {
   }
 }
 
+@media (min-width: 768px) {
+  .page-template-template-stage-future .content-container {
+    padding-top: 1em;
+  }
+}
+
 .content-container .content .side-bar {
   line-height: 1.25;
   position: relative;

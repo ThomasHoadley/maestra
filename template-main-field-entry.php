@@ -49,7 +49,12 @@ if ($detect->isMobile() && !$detect->isTablet()) {
     html { height: 100%;} 
     body { height: 100%;}    
     /* Center the thing */
-    body {display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column;}
+    body {display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; }
+    @media (min-height: 768px) {
+        body {
+            -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column;
+        }
+    }
     body{background:rgba(41,223,239,1);}
     body.chrome{background:#30e5f3;}
     body.webkit{background:#38e6f3;}
