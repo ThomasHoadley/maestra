@@ -24,9 +24,10 @@ if ($detect->isMobile() && !$detect->isTablet()) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Social Meta goes here -->
   <!-- Fav icon goes here -->
+  <?php get_template_part('resources/parts/favicons'); ?>
 
   <?php wp_head(); ?>
-
+    
   <script>
       window.App = <?= json_encode([
       'urls'      => [
@@ -137,18 +138,17 @@ if ($detect->isMobile() && !$detect->isTablet()) {
         var video = document.getElementById('video');
 
         function updateVideo() {
-            video.currentTime = 4.03;
+            video.currentTime = 5.02;
             video.play();
         }
 
         function setTimer() {
-            console.log('playing');
             setTimeout(function(){
                 var images = document.querySelectorAll(".field-image");
                 for (i = 0; i < images.length; ++i) {
                     images[i].classList.remove("no-pointer-events");
                 }
-            }, 3500);
+            }, 5000);
         }
     </script>
     <script>
@@ -177,7 +177,6 @@ if ($detect->isMobile() && !$detect->isTablet()) {
         output = (isChrome ? 'isChrome' : '');
         output = (isEdgeChromium ? 'isEdgeChromium' : '');
         output = (isBlink ? 'isBlink' : '');
-        console.log(output);
         // document.body.classList.add(output);
     </script>
 <?php

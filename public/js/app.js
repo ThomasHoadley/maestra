@@ -158,6 +158,7 @@ jQuery(document).ready(function ($) {
       fillColor: false,
       fillOpacity: 0.0,
       strokeOpacity: 0.0,
+      scaleMap: true,
       // fillOpacity: 0.7,
       // mapKey: "group",
       // strokeWidth: 2,

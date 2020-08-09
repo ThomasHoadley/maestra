@@ -22,7 +22,7 @@ if ($detect->isMobile() && !$detect->isTablet()) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Social Meta goes here -->
-  <!-- Fav icon goes here -->
+  <?php get_template_part('resources/parts/favicons'); ?>
 
   <?php wp_head(); ?>
   <script>
@@ -182,7 +182,6 @@ if ($detect->isMobile() && !$detect->isTablet()) {
             var musicArray = window.music;
             var randSong = musicArray[Math.floor(Math.random() * musicArray.length)];
             var newSong = '<?= get_template_directory_uri(); ?>/public/music/'+ randSong;
-            console.log(newSong);
             audio.load();
             audio.play();
             audiosource.src = newSong; 

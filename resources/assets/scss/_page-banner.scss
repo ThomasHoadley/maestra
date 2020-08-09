@@ -1,12 +1,15 @@
 .stage-banner-container {
 	padding-top: 0em;
-	width: 1300px;
+	width: 100%;
 	max-width: 100%;
 	margin-left: auto;
     margin-right: auto;
     text-align: center;
     transform: rotate(-3deg);
     margin-top: -1em;
+    .page-template-template-stage-future & {
+        margin-bottom: 1em;
+    }
 
 
     .row {

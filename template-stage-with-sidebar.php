@@ -21,6 +21,8 @@ if ( have_posts() ) {
         }
         $show_holding_content = get_field( 'show_holding_content' );
         $holding_content_text = get_field( 'holding_content_text' );
+        $custom_embed = get_field( 'custom_embed' );
+        
     ?>
 
     <?php get_template_part('resources/parts/stage-header'); ?>
@@ -47,10 +49,15 @@ if ( have_posts() ) {
             <div class="content has-sidebar">
                 <div class="video">
                     <?php if($video_id) { ?>
-                    <div class="video-container" <?= $video_placeholder_string; ?>>
-                        <?php echo "<iframe src='https://player.vimeo.com/video/$video_id?title=0&byline=0&portrait=0&sidedock=0&autoplay=1' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen ></iframe>"; ?>
-                    </div>
-                <?php }; ?>
+                        <div class="video-container" <?= $video_placeholder_string; ?>>
+                            <?php echo "<iframe src='https://player.vimeo.com/video/$video_id?title=0&byline=0&portrait=0&sidedock=0&autoplay=1' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen ></iframe>"; ?>
+                        </div>
+                    <?php }; ?>
+                    <?php if($custom_embed) { ?>
+                        <div class="video-container">
+                            <?= $custom_embed; ?>
+                        </div>
+                    <?php } ?>
                 </div>
                 <div class="side-bar panel">
                     <div class="content">

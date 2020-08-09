@@ -12,8 +12,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Social Meta goes here -->
-
-  <!-- Fav icon goes here -->
+  <?php get_template_part('resources/parts/favicons'); ?>
 
 
   <?php wp_head(); ?>

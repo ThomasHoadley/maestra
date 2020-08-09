@@ -46,13 +46,13 @@
     }
     .video-container {
         width: 100%;
-        padding: 0px 15px;
         box-sizing: border-box;
         height: auto;
         margin-bottom: 30px;
         flex-basis: 100%;
         @media (min-width: 768px) {
             flex-basis: 50%;
+            padding: 0px 15px;
         }
         .video-thumbnail {
             width: 100%;
@@ -69,6 +69,10 @@
         .video-description {
             text-align: center;
             margin-top: 1em;
+            font-size: 15px;
+            @media (min-width: 768px) {
+                font-size: 0.9em;
+            }
         }
     }
 }

@@ -13,8 +13,7 @@ function is_valid_email_domain($login, $email, $errors ){
     "warnerchappellpm.com",
     "warnerchappell.com",
     "disturbinglondon.com",
-    "maestra-group.com",
-    "gmail.com"
+    "maestra-group.com"
   );
   $valid = false;
   foreach( $valid_email_domains as $d ){

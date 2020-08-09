@@ -48,6 +48,13 @@
                 "operator": "==",
                 "value": "template-stage-with-sidebar.php"
             }
+        ],
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-stage-future.php"
+            }
         ]
     ],
     "menu_order": 0,
@@ -60,5 +67,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1596098882
+    "modified": 1596997426
 }

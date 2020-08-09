@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: Stage Template
+ * Template Name: Future Stage Child Template
  */
 
 get_header();
@@ -21,8 +21,7 @@ if ( have_posts() ) {
         $custom_embed = get_field( 'custom_embed' );
     ?>
 
-    <?php get_template_part('resources/parts/stage-header'); ?>
-    <?php get_template_part('resources/parts/stage-banner'); ?>
+    <?php get_template_part('resources/parts/stage-header-future'); ?>
 
     <div class="content-container">
         

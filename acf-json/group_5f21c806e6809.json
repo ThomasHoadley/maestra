@@ -71,6 +71,13 @@
                 "operator": "==",
                 "value": "template-stage.php"
             }
+        ],
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-stage-future.php"
+            }
         ]
     ],
     "menu_order": 4,
@@ -83,5 +90,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1596116426
+    "modified": 1596997440
 }
