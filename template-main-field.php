@@ -162,6 +162,7 @@ if ($detect->isMobile() && !$detect->isTablet()) {
             audio.setAttribute("autoplay", "true");
             window.localStorage.setItem('muted', 'false');
             muteToggle.classList.add("playing");
+            audio.volume = 0.7;
             audio.play();
         }
         

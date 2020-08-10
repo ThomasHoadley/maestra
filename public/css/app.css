@@ -416,9 +416,6 @@ img {
   .stage-header .col.left .return-container {
     position: relative;
   }
-  .stage-header .col.left .return-container .return {
-    width: 300px;
-  }
   .stage-header .col.middle {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
@@ -470,6 +467,7 @@ img {
   .stage-header .col.left .return-container .return {
     font-size: 1.4em;
     line-height: 1.2;
+    width: 300px;
   }
   .stage-header .col.left .return-container .flag {
     top: 30px;

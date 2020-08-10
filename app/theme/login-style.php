@@ -6,8 +6,8 @@ function login_styles() { ?>
         body.login{background:rgba(41,223,239,1);}
         body.login div#login h1 a {
             background-image: url(<?= Theme::getImage('logo', 'png'); ?>);
-            background-size: 100% auto;
-            width: 320px;
+            background-size: contain;
+            width: 310px;
         }        
         .login #login_error, .login .message, .login .success {
           border-left: 0px !important;

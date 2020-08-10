@@ -95,9 +95,6 @@
             width: 200px;
             .return-container {
                 position: relative;
-                .return {
-                    width: 300px;
-                }
             }
         }
         .col.middle {
@@ -147,6 +144,7 @@
                 .return {
                     font-size: 1.4em;
                     line-height: 1.2;
+                    width: 300px;
                 }
                 .flag {
                     top: 30px;
