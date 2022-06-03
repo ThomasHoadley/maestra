@@ -20,7 +20,7 @@
   "devDependencies": {
     "browser-sync": "^2.24.4",
     "browser-sync-webpack-plugin": "2.0.1",
-    "jquery-validation": "^1.19.0",
+    "jquery-validation": "^1.19.4",
     "parsleyjs": "^2.8.1"
   }
 }
